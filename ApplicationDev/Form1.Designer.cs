@@ -35,16 +35,10 @@ namespace ApplicationDev
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.chkOutBtn = new System.Windows.Forms.Button();
             this.chkInBtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dayColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cardColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chkInColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chkOutColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -55,11 +49,12 @@ namespace ApplicationDev
             this.cardField.Name = "cardField";
             this.cardField.Size = new System.Drawing.Size(98, 20);
             this.cardField.TabIndex = 0;
-            // 
+            //
             // nmField
             // 
             this.nmField.Location = new System.Drawing.Point(96, 45);
             this.nmField.Name = "nmField";
+            this.nmField.ReadOnly = true;
             this.nmField.Size = new System.Drawing.Size(98, 20);
             this.nmField.TabIndex = 1;
             // 
@@ -98,6 +93,16 @@ namespace ApplicationDev
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Visitor Entry";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(201, 20);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Check";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // chkOutBtn
             // 
             this.chkOutBtn.Location = new System.Drawing.Point(119, 95);
@@ -107,6 +112,7 @@ namespace ApplicationDev
             this.chkOutBtn.Text = "Check Out";
             this.chkOutBtn.UseVisualStyleBackColor = true;
             this.chkOutBtn.Click += new System.EventHandler(this.chkOutBtn_Click);
+            this.chkOutBtn.Enabled = false;
             // 
             // chkInBtn
             // 
@@ -117,74 +123,21 @@ namespace ApplicationDev
             this.chkInBtn.Text = "Check In";
             this.chkInBtn.UseVisualStyleBackColor = true;
             this.chkInBtn.Click += new System.EventHandler(this.chkInBtn_Click);
+            this.chkInBtn.Enabled = false;
             // 
             // dataGridView1
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dayColumn,
-            this.cardColumn,
-            this.nameColumn,
-            this.chkInColumn,
-            this.chkOutColumn,
-            this.totalTimeColumn});
-            this.dataGridView1.Location = new System.Drawing.Point(65, 280);
+            this.dataGridView1.Location = new System.Drawing.Point(44, 270);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 10;
-            this.dataGridView1.Size = new System.Drawing.Size(685, 163);
+            this.dataGridView1.Size = new System.Drawing.Size(708, 197);
             this.dataGridView1.TabIndex = 6;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // dayColumn
-            // 
-            this.dayColumn.HeaderText = "Day";
-            this.dayColumn.Name = "dayColumn";
-            this.dayColumn.ReadOnly = true;
-            // 
-            // cardColumn
-            // 
-            this.cardColumn.HeaderText = "Card Number";
-            this.cardColumn.Name = "cardColumn";
-            this.cardColumn.ReadOnly = true;
-            // 
-            // nameColumn
-            // 
-            this.nameColumn.HeaderText = "Name";
-            this.nameColumn.Name = "nameColumn";
-            this.nameColumn.ReadOnly = true;
-            // 
-            // chkInColumn
-            // 
-            this.chkInColumn.HeaderText = "Check In";
-            this.chkInColumn.Name = "chkInColumn";
-            this.chkInColumn.ReadOnly = true;
-            // 
-            // chkOutColumn
-            // 
-            this.chkOutColumn.HeaderText = "Check Out";
-            this.chkOutColumn.Name = "chkOutColumn";
-            this.chkOutColumn.ReadOnly = true;
-            // 
-            // totalTimeColumn
-            // 
-            this.totalTimeColumn.HeaderText = "Total Time";
-            this.totalTimeColumn.Name = "totalTimeColumn";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(201, 20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Check";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(806, 484);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
@@ -207,14 +160,8 @@ namespace ApplicationDev
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button chkOutBtn;
         private System.Windows.Forms.Button chkInBtn;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dayColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cardColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chkInColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chkOutColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalTimeColumn;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

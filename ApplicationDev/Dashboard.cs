@@ -12,20 +12,25 @@ namespace ApplicationDev
 {
     public partial class Dashboard : Form
     {
-        public Dashboard()
+        List<string> vstrs;
+       
+
+        public Dashboard(List<string> visitors)
         {
             InitializeComponent();
+            vstrs = visitors;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Register rs = new Register();
+            
+            Register rs = new Register(vstrs);
             rs.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form1 frm = new Form1();
+            Form1 frm = new Form1(vstrs);
             frm.Show();
         }
 
