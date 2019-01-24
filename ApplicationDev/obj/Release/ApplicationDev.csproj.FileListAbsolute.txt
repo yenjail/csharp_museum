@@ -1,0 +1,12 @@
+D:\c sharp workspace\ApplicationDev\ApplicationDev\bin\Release\ApplicationDev.exe.config
+D:\c sharp workspace\ApplicationDev\ApplicationDev\bin\Release\ApplicationDev.exe
+D:\c sharp workspace\ApplicationDev\ApplicationDev\bin\Release\ApplicationDev.pdb
+D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Release\ApplicationDev.Dashboard.resources
+D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Release\ApplicationDev.Form1.resources
+D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Release\ApplicationDev.LoginPanel.resources
+D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Release\ApplicationDev.Properties.Resources.resources
+D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Release\ApplicationDev.Register.resources
+D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Release\ApplicationDev.csproj.GenerateResource.cache
+D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Release\ApplicationDev.csproj.CoreCompileInputs.cache
+D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Release\ApplicationDev.exe
+D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Release\ApplicationDev.pdb

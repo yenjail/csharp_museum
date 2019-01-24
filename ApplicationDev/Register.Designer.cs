@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.occupationTxt = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.last_nameTxt = new System.Windows.Forms.TextBox();
+            this.emailTxt = new System.Windows.Forms.TextBox();
+            this.regCardNumber = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.contactTxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.addressText = new System.Windows.Forms.TextBox();
@@ -38,14 +46,6 @@
             this.genderTxt = new System.Windows.Forms.ComboBox();
             this.firstNameTxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.regCardNumber = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.emailTxt = new System.Windows.Forms.TextBox();
-            this.last_nameTxt = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.occupationTxt = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,6 +75,70 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Register";
+            // 
+            // occupationTxt
+            // 
+            this.occupationTxt.Location = new System.Drawing.Point(214, 159);
+            this.occupationTxt.Name = "occupationTxt";
+            this.occupationTxt.Size = new System.Drawing.Size(121, 20);
+            this.occupationTxt.TabIndex = 18;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(211, 143);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(62, 13);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Occupation";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(211, 56);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Last Name";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(211, 97);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 13);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Email Address";
+            // 
+            // last_nameTxt
+            // 
+            this.last_nameTxt.Location = new System.Drawing.Point(214, 72);
+            this.last_nameTxt.Name = "last_nameTxt";
+            this.last_nameTxt.Size = new System.Drawing.Size(121, 20);
+            this.last_nameTxt.TabIndex = 14;
+            // 
+            // emailTxt
+            // 
+            this.emailTxt.Location = new System.Drawing.Point(214, 114);
+            this.emailTxt.Name = "emailTxt";
+            this.emailTxt.Size = new System.Drawing.Size(121, 20);
+            this.emailTxt.TabIndex = 13;
+            // 
+            // regCardNumber
+            // 
+            this.regCardNumber.Location = new System.Drawing.Point(64, 33);
+            this.regCardNumber.Name = "regCardNumber";
+            this.regCardNumber.Size = new System.Drawing.Size(79, 20);
+            this.regCardNumber.TabIndex = 12;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(61, 17);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(69, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Card Number";
             // 
             // contactTxt
             // 
@@ -154,70 +218,6 @@
             this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "First Name";
-            // 
-            // regCardNumber
-            // 
-            this.regCardNumber.Location = new System.Drawing.Point(64, 33);
-            this.regCardNumber.Name = "regCardNumber";
-            this.regCardNumber.Size = new System.Drawing.Size(79, 20);
-            this.regCardNumber.TabIndex = 12;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(61, 17);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 13);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Card Number";
-            // 
-            // emailTxt
-            // 
-            this.emailTxt.Location = new System.Drawing.Point(214, 114);
-            this.emailTxt.Name = "emailTxt";
-            this.emailTxt.Size = new System.Drawing.Size(121, 20);
-            this.emailTxt.TabIndex = 13;
-            // 
-            // last_nameTxt
-            // 
-            this.last_nameTxt.Location = new System.Drawing.Point(214, 72);
-            this.last_nameTxt.Name = "last_nameTxt";
-            this.last_nameTxt.Size = new System.Drawing.Size(121, 20);
-            this.last_nameTxt.TabIndex = 14;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(211, 97);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 13);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Email Address";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(211, 56);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 13);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Last Name";
-            // 
-            // occupationTxt
-            // 
-            this.occupationTxt.Location = new System.Drawing.Point(214, 159);
-            this.occupationTxt.Name = "occupationTxt";
-            this.occupationTxt.Size = new System.Drawing.Size(121, 20);
-            this.occupationTxt.TabIndex = 18;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(211, 143);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(62, 13);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "Occupation";
             // 
             // Register
             // 

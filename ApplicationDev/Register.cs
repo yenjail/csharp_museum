@@ -26,13 +26,13 @@ namespace ApplicationDev
             foreach (string i in vstrs)
             {
                
-                Console.WriteLine(i);
+                //Console.WriteLine(i);
                 var values = i.Split(',').ToList();
-                Console.WriteLine(values.Count);
+                //Console.WriteLine(values.Count);
                 Visitor visitor = new Visitor();
                 //  writer.WriteLine(i.card_number+","+i.name+","+i.address+","+i.contact+","+i.gender);
                 visitor.card_number = values[0];
-                Console.WriteLine(values[1]);
+                //Console.WriteLine(values[1]);
                 
                 visitor.first_name = values[1];
                 visitor.last_name = values[2];
@@ -86,8 +86,8 @@ namespace ApplicationDev
                     using (StreamWriter writer = new StreamWriter(path, append: true))
                     {
                        
-                            Console.WriteLine(i.card_number + i.first_name);
-                            writer.WriteLine(regCardNumber.Text + "," + firstNameTxt.Text + "," +last_nameTxt.Text + "," + addressText.Text + "," + contactTxt.Text + "," + genderTxt.Text + "," + emailTxt.Text + "," + occupationTxt.Text + ",");
+                            //Console.WriteLine(i.card_number + i.first_name);
+                            writer.WriteLine(regCardNumber.Text + "," + firstNameTxt.Text + "," +last_nameTxt.Text + "," + addressText.Text + "," + contactTxt.Text + "," + genderTxt.Text + "," + emailTxt.Text + "," + occupationTxt.Text);
 
                             regCardNumber.Text = "";
                             firstNameTxt.Text = "";

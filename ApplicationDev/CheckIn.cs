@@ -39,6 +39,10 @@ namespace ApplicationDev
         {
             get; set;
         }
+        public string total_time
+        {
+            get; set;
+        }
 
 
     }
