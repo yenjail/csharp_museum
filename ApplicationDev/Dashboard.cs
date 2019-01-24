@@ -177,7 +177,41 @@ namespace ApplicationDev
                 string[] headerLabels = firstLine.Split(',');
             }
 
-           
+            //pre load
+            List<string> ls = readCheckIns();
+            
+
+            var visit = from date in ls
+
+                        where date.Contains(DateTime.Now.Date.ToShortDateString())
+                        select date;
+
+
+            List<string> cards = new List<string>();
+            foreach (string s in visit)
+            {
+                Console.WriteLine("Uniques: " + s);
+
+                string vals = s.ToString();
+                string[] n = vals.Split(',');
+                chkData = new List<string>();
+                DateTime day = new DateTime();
+                DataRow dr = dt.NewRow();
+                int columnIndex = 0;
+                day = DateTime.Now;
+                chkData.Add(n[0]);
+                chkData.Add(n[1]);
+                chkData.Add(n[2]);
+                chkData.Add(n[3]);
+                chkData.Add(n[4]);
+                chkData.Add(n[5]);
+                chkData.Add(n[6]);
+                dt.Rows.Add(n[0], n[1], n[2], n[3], n[4], n[5], n[6]);
+
+            }
+            this.dataGridView1.DataSource = dt;
+
+
         }
 
 
@@ -381,7 +415,7 @@ namespace ApplicationDev
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            BndDataCSV("C:\\Users\\anjil\\Desktop\\checkins.csv");
+            
 
             dt.Columns.AddRange(new DataColumn[] {
                 new DataColumn("Card Number",typeof(string)),
@@ -396,6 +430,7 @@ namespace ApplicationDev
 
 
             });
+            BndDataCSV("C:\\Users\\anjil\\Desktop\\checkins.csv");
         }
 
         private void chkInBtn_Click(object sender, EventArgs e)
@@ -631,8 +666,10 @@ namespace ApplicationDev
             //DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
             //cardField.Text = row.ToString();
             DataGridViewRow chkD = dataGridView1.Rows[rowVal];
+           
 
             chkD.Cells[6].Value = DateTime.Now.ToLongTimeString();
+            Console.WriteLine("Cel data: " + chkD.Cells[6].Value);
             chkData[5] = chkD.Cells[6].Value.ToString();
             chkD.Cells[7].Value = DateTime.Parse(chkData[5]).Minute - DateTime.Parse(chkD.Cells[5].Value.ToString()).Minute;
             chkData[6] = chkD.Cells[7].Value.ToString();
@@ -697,7 +734,10 @@ namespace ApplicationDev
 
         }
 
-       
-
+        private void weeklyMenu_Click(object sender, EventArgs e)
+        {
+            WeeklyReport wr = new WeeklyReport();
+            wr.Show();
+        }
     }
 }

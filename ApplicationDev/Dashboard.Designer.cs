@@ -54,6 +54,7 @@
             this.recordPanel = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.conField = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.gnField = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -91,7 +92,6 @@
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dailyMEnu = new System.Windows.Forms.ToolStripMenuItem();
             this.weeklyMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.conField = new System.Windows.Forms.Label();
             this.registerPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.recordPanel.SuspendLayout();
@@ -347,7 +347,7 @@
             this.groupBox3.Size = new System.Drawing.Size(872, 443);
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
+            this.groupBox3.Text = "Check In";
             // 
             // groupBox2
             // 
@@ -376,6 +376,14 @@
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Visitor Entry";
+            // 
+            // conField
+            // 
+            this.conField.AutoSize = true;
+            this.conField.Location = new System.Drawing.Point(275, 117);
+            this.conField.Name = "conField";
+            this.conField.Size = new System.Drawing.Size(0, 13);
+            this.conField.TabIndex = 24;
             // 
             // label19
             // 
@@ -688,16 +696,9 @@
             // weeklyMenu
             // 
             this.weeklyMenu.Name = "weeklyMenu";
-            this.weeklyMenu.Size = new System.Drawing.Size(112, 22);
+            this.weeklyMenu.Size = new System.Drawing.Size(180, 22);
             this.weeklyMenu.Text = "Weekly";
-            // 
-            // conField
-            // 
-            this.conField.AutoSize = true;
-            this.conField.Location = new System.Drawing.Point(275, 117);
-            this.conField.Name = "conField";
-            this.conField.Size = new System.Drawing.Size(0, 13);
-            this.conField.TabIndex = 24;
+            this.weeklyMenu.Click += new System.EventHandler(this.weeklyMenu_Click);
             // 
             // Dashboard
             // 
