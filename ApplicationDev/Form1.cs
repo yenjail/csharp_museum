@@ -262,7 +262,6 @@ namespace ApplicationDev
             {
 
                 string firstLine = lines[0];
-
                 string[] headerLabels = firstLine.Split(',');
                 chkData = new List<string>();
                 DateTime day = new DateTime();
@@ -571,8 +570,9 @@ namespace ApplicationDev
                                 cn = "";
                                 checkCheckInTxt.Text="";
                                 chkData[5] = dataGridView1.Rows[row.Index].Cells[6].Value.ToString();
-                                dataGridView1.Rows[row.Index].Cells[7].Value = DateTime.Parse(chkData[5]).Minute - DateTime.Parse(dataGridView1.Rows[row.Index].Cells[5].Value.ToString()).Minute;
-
+                                // dataGridView1.Rows[row.Index].Cells[7].Value = DateTime.Parse(chkData[5]).Minute - DateTime.Parse(dataGridView1.Rows[row.Index].Cells[5].Value.ToString()).Minute;
+                                dataGridView1.Rows[row.Index].Cells[7].Value = DateTime.Parse(chkData[5]).Subtract(DateTime.Parse(dataGridView1.Rows[row.Index].Cells[5].Value.ToString())).TotalMinutes;
+                                //b.Subtract(a).TotalMinutes
                                 chkData[6] = dataGridView1.Rows[row.Index].Cells[7].Value.ToString();
 
                                 //write csv

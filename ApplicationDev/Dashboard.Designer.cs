@@ -28,9 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dailyMEnu = new System.Windows.Forms.ToolStripMenuItem();
+            this.weeklyMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.headerLabel = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.registerPanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.Register = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.generate = new System.Windows.Forms.Button();
             this.occupationTxt = new System.Windows.Forms.TextBox();
@@ -50,8 +59,9 @@
             this.genderTxt = new System.Windows.Forms.ComboBox();
             this.firstNameTxt = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.Register = new System.Windows.Forms.Label();
-            this.recordPanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.registerPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.conField = new System.Windows.Forms.Label();
@@ -64,7 +74,6 @@
             this.ocField = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.chkInBtn = new System.Windows.Forms.Button();
@@ -85,59 +94,148 @@
             this.outTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.checkOut = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.registerBar = new System.Windows.Forms.ProgressBar();
-            this.recordBar = new System.Windows.Forms.ProgressBar();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dailyMEnu = new System.Windows.Forms.ToolStripMenuItem();
-            this.weeklyMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.registerPanel.SuspendLayout();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.recordPanel = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.barShow = new System.Windows.Forms.Panel();
+            this.dashboardPanel = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label20 = new System.Windows.Forms.Label();
+            this.timerLbl = new System.Windows.Forms.Label();
+            this.dashCurrentDay = new System.Windows.Forms.Label();
+            this.dashCurrentDate = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.visitorsCountLbl = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.dashCheckedIN = new System.Windows.Forms.Label();
+            this.menuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.recordPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.registerPanel.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.recordPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.dashboardPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // menuStrip1
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.button1.Location = new System.Drawing.Point(363, 77);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Register";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reportToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(966, 29);
+            this.menuStrip1.TabIndex = 12;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // reportToolStripMenuItem
+            // 
+            this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dailyMEnu,
+            this.weeklyMenu});
+            this.reportToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(75, 25);
+            this.reportToolStripMenuItem.Text = "Report";
+            // 
+            // dailyMEnu
+            // 
+            this.dailyMEnu.Name = "dailyMEnu";
+            this.dailyMEnu.Size = new System.Drawing.Size(180, 26);
+            this.dailyMEnu.Text = "Daily";
+            this.dailyMEnu.Click += new System.EventHandler(this.dailyMEnu_Click);
+            // 
+            // weeklyMenu
+            // 
+            this.weeklyMenu.Name = "weeklyMenu";
+            this.weeklyMenu.Size = new System.Drawing.Size(180, 26);
+            this.weeklyMenu.Text = "Weekly";
+            this.weeklyMenu.Click += new System.EventHandler(this.weeklyMenu_Click);
+            // 
+            // headerLabel
+            // 
+            this.headerLabel.AutoSize = true;
+            this.headerLabel.Font = new System.Drawing.Font("Bauhaus 93", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.headerLabel.ForeColor = System.Drawing.Color.White;
+            this.headerLabel.Location = new System.Drawing.Point(69, 31);
+            this.headerLabel.Name = "headerLabel";
+            this.headerLabel.Size = new System.Drawing.Size(393, 54);
+            this.headerLabel.TabIndex = 14;
+            this.headerLabel.Text = "Islington Museum";
+            this.headerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.headerLabel.Click += new System.EventHandler(this.label14_Click);
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.button2.Location = new System.Drawing.Point(498, 77);
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(699, 76);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(177, 46);
             this.button2.TabIndex = 1;
-            this.button2.Text = "Record";
+            this.button2.Text = "Record Time";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // registerPanel
+            // button1
             // 
-            this.registerPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.registerPanel.Controls.Add(this.groupBox1);
-            this.registerPanel.Controls.Add(this.Register);
-            this.registerPanel.Location = new System.Drawing.Point(12, 151);
-            this.registerPanel.Name = "registerPanel";
-            this.registerPanel.Size = new System.Drawing.Size(630, 472);
-            this.registerPanel.TabIndex = 2;
-            this.registerPanel.Visible = false;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(519, 76);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(174, 46);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Register Visitor";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel1.Controls.Add(this.barShow);
+            this.panel1.Controls.Add(this.pictureBox3);
+            this.panel1.Controls.Add(this.headerLabel);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Location = new System.Drawing.Point(0, 27);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(966, 136);
+            this.panel1.TabIndex = 13;
+            // 
+            // Register
+            // 
+            this.Register.AutoSize = true;
+            this.Register.Location = new System.Drawing.Point(266, 88);
+            this.Register.Name = "Register";
+            this.Register.Size = new System.Drawing.Size(46, 13);
+            this.Register.TabIndex = 0;
+            this.Register.Text = "Register";
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.groupBox1.BackColor = System.Drawing.Color.LightSlateGray;
             this.groupBox1.Controls.Add(this.generate);
             this.groupBox1.Controls.Add(this.occupationTxt);
             this.groupBox1.Controls.Add(this.label8);
@@ -156,28 +254,32 @@
             this.groupBox1.Controls.Add(this.genderTxt);
             this.groupBox1.Controls.Add(this.firstNameTxt);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Location = new System.Drawing.Point(42, 52);
+            this.groupBox1.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(31, 19);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(569, 331);
+            this.groupBox1.Size = new System.Drawing.Size(568, 246);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Register";
             // 
             // generate
             // 
-            this.generate.Location = new System.Drawing.Point(255, 36);
+            this.generate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.generate.ForeColor = System.Drawing.Color.White;
+            this.generate.Location = new System.Drawing.Point(323, 35);
             this.generate.Name = "generate";
-            this.generate.Size = new System.Drawing.Size(75, 23);
+            this.generate.Size = new System.Drawing.Size(91, 27);
             this.generate.TabIndex = 19;
             this.generate.Text = "Generate";
-            this.generate.UseVisualStyleBackColor = true;
+            this.generate.UseVisualStyleBackColor = false;
             this.generate.Click += new System.EventHandler(this.generate_Click);
             // 
             // occupationTxt
             // 
-            this.occupationTxt.Location = new System.Drawing.Point(398, 152);
+            this.occupationTxt.Location = new System.Drawing.Point(429, 152);
             this.occupationTxt.Name = "occupationTxt";
-            this.occupationTxt.Size = new System.Drawing.Size(121, 20);
+            this.occupationTxt.Size = new System.Drawing.Size(121, 27);
             this.occupationTxt.TabIndex = 18;
             // 
             // label8
@@ -185,16 +287,16 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(319, 159);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(62, 13);
+            this.label8.Size = new System.Drawing.Size(88, 20);
             this.label8.TabIndex = 17;
             this.label8.Text = "Occupation";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(323, 75);
+            this.label7.Location = new System.Drawing.Point(319, 75);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 13);
+            this.label7.Size = new System.Drawing.Size(84, 20);
             this.label7.TabIndex = 16;
             this.label7.Text = "Last Name";
             // 
@@ -203,30 +305,30 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(319, 121);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 13);
+            this.label6.Size = new System.Drawing.Size(108, 20);
             this.label6.TabIndex = 15;
             this.label6.Text = "Email Address";
             // 
             // last_nameTxt
             // 
-            this.last_nameTxt.Location = new System.Drawing.Point(398, 72);
+            this.last_nameTxt.Location = new System.Drawing.Point(429, 72);
             this.last_nameTxt.Name = "last_nameTxt";
-            this.last_nameTxt.Size = new System.Drawing.Size(121, 20);
+            this.last_nameTxt.Size = new System.Drawing.Size(121, 27);
             this.last_nameTxt.TabIndex = 14;
             // 
             // emailTxt
             // 
-            this.emailTxt.Location = new System.Drawing.Point(398, 114);
+            this.emailTxt.Location = new System.Drawing.Point(429, 114);
             this.emailTxt.Name = "emailTxt";
-            this.emailTxt.Size = new System.Drawing.Size(121, 20);
+            this.emailTxt.Size = new System.Drawing.Size(121, 27);
             this.emailTxt.TabIndex = 13;
             // 
             // regCardNumber
             // 
             this.regCardNumber.Enabled = false;
-            this.regCardNumber.Location = new System.Drawing.Point(139, 37);
+            this.regCardNumber.Location = new System.Drawing.Point(169, 36);
             this.regCardNumber.Name = "regCardNumber";
-            this.regCardNumber.Size = new System.Drawing.Size(79, 20);
+            this.regCardNumber.Size = new System.Drawing.Size(120, 27);
             this.regCardNumber.TabIndex = 12;
             // 
             // label5
@@ -234,15 +336,15 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(64, 40);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 13);
+            this.label5.Size = new System.Drawing.Size(103, 20);
             this.label5.TabIndex = 11;
             this.label5.Text = "Card Number";
             // 
             // contactTxt
             // 
-            this.contactTxt.Location = new System.Drawing.Point(138, 114);
+            this.contactTxt.Location = new System.Drawing.Point(169, 114);
             this.contactTxt.Name = "contactTxt";
-            this.contactTxt.Size = new System.Drawing.Size(121, 20);
+            this.contactTxt.Size = new System.Drawing.Size(121, 27);
             this.contactTxt.TabIndex = 10;
             // 
             // label4
@@ -250,15 +352,15 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(64, 121);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 13);
+            this.label4.Size = new System.Drawing.Size(63, 20);
             this.label4.TabIndex = 9;
             this.label4.Text = "Contact";
             // 
             // addressText
             // 
-            this.addressText.Location = new System.Drawing.Point(138, 152);
+            this.addressText.Location = new System.Drawing.Point(169, 152);
             this.addressText.Name = "addressText";
-            this.addressText.Size = new System.Drawing.Size(121, 20);
+            this.addressText.Size = new System.Drawing.Size(121, 27);
             this.addressText.TabIndex = 8;
             // 
             // label2
@@ -266,7 +368,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(67, 155);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 13);
+            this.label2.Size = new System.Drawing.Size(66, 20);
             this.label2.TabIndex = 7;
             this.label2.Text = "Address";
             // 
@@ -275,18 +377,20 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(67, 194);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.Size = new System.Drawing.Size(60, 20);
             this.label3.TabIndex = 6;
             this.label3.Text = "Gender";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(245, 255);
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(438, 199);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(112, 37);
             this.button3.TabIndex = 5;
             this.button3.Text = "Register";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // genderTxt
@@ -295,17 +399,17 @@
             this.genderTxt.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.genderTxt.Location = new System.Drawing.Point(138, 191);
+            this.genderTxt.Location = new System.Drawing.Point(169, 191);
             this.genderTxt.Name = "genderTxt";
-            this.genderTxt.Size = new System.Drawing.Size(121, 21);
+            this.genderTxt.Size = new System.Drawing.Size(121, 28);
             this.genderTxt.TabIndex = 4;
             this.genderTxt.Tag = "";
             // 
             // firstNameTxt
             // 
-            this.firstNameTxt.Location = new System.Drawing.Point(138, 72);
+            this.firstNameTxt.Location = new System.Drawing.Point(169, 72);
             this.firstNameTxt.Name = "firstNameTxt";
-            this.firstNameTxt.Size = new System.Drawing.Size(121, 20);
+            this.firstNameTxt.Size = new System.Drawing.Size(121, 27);
             this.firstNameTxt.TabIndex = 1;
             // 
             // label9
@@ -313,45 +417,59 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(64, 75);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(57, 13);
+            this.label9.Size = new System.Drawing.Size(86, 20);
             this.label9.TabIndex = 0;
             this.label9.Text = "First Name";
             // 
-            // Register
+            // pictureBox1
             // 
-            this.Register.AutoSize = true;
-            this.Register.Location = new System.Drawing.Point(266, 88);
-            this.Register.Name = "Register";
-            this.Register.Size = new System.Drawing.Size(46, 13);
-            this.Register.TabIndex = 0;
-            this.Register.Text = "Register";
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(648, 133);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(233, 292);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
             // 
-            // recordPanel
+            // registerPanel
             // 
-            this.recordPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.recordPanel.Controls.Add(this.groupBox3);
-            this.recordPanel.Controls.Add(this.label1);
-            this.recordPanel.Location = new System.Drawing.Point(51, 174);
-            this.recordPanel.Name = "recordPanel";
-            this.recordPanel.Size = new System.Drawing.Size(906, 597);
-            this.recordPanel.TabIndex = 3;
-            this.recordPanel.Visible = false;
+            this.registerPanel.BackColor = System.Drawing.Color.LightSlateGray;
+            this.registerPanel.Controls.Add(this.pictureBox1);
+            this.registerPanel.Controls.Add(this.groupBox1);
+            this.registerPanel.Controls.Add(this.Register);
+            this.registerPanel.Location = new System.Drawing.Point(24, 176);
+            this.registerPanel.Name = "registerPanel";
+            this.registerPanel.Size = new System.Drawing.Size(886, 439);
+            this.registerPanel.TabIndex = 2;
+            this.registerPanel.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(271, 88);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Record";
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.groupBox2);
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Location = new System.Drawing.Point(27, 29);
+            this.groupBox3.Controls.Add(this.pictureBox2);
+            this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.ForeColor = System.Drawing.Color.Black;
+            this.groupBox3.Location = new System.Drawing.Point(28, 23);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(872, 443);
+            this.groupBox3.Size = new System.Drawing.Size(872, 446);
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Check In";
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox2.BackColor = System.Drawing.Color.SteelBlue;
             this.groupBox2.Controls.Add(this.conField);
             this.groupBox2.Controls.Add(this.label19);
             this.groupBox2.Controls.Add(this.gnField);
@@ -362,7 +480,6 @@
             this.groupBox2.Controls.Add(this.ocField);
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.chkInBtn);
@@ -370,9 +487,11 @@
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.nmField);
             this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Location = new System.Drawing.Point(20, 35);
+            this.groupBox2.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(17, 26);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(475, 182);
+            this.groupBox2.Size = new System.Drawing.Size(539, 220);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Visitor Entry";
@@ -380,34 +499,34 @@
             // conField
             // 
             this.conField.AutoSize = true;
-            this.conField.Location = new System.Drawing.Point(275, 117);
+            this.conField.Location = new System.Drawing.Point(398, 136);
             this.conField.Name = "conField";
-            this.conField.Size = new System.Drawing.Size(0, 13);
+            this.conField.Size = new System.Drawing.Size(0, 20);
             this.conField.TabIndex = 24;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(215, 85);
+            this.label19.Location = new System.Drawing.Point(319, 104);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(45, 13);
+            this.label19.Size = new System.Drawing.Size(65, 20);
             this.label19.TabIndex = 23;
             this.label19.Text = "Gender:";
             // 
             // gnField
             // 
             this.gnField.AutoSize = true;
-            this.gnField.Location = new System.Drawing.Point(91, 154);
+            this.gnField.Location = new System.Drawing.Point(131, 172);
             this.gnField.Name = "gnField";
-            this.gnField.Size = new System.Drawing.Size(0, 13);
+            this.gnField.Size = new System.Drawing.Size(0, 20);
             this.gnField.TabIndex = 22;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(20, 154);
+            this.label18.Location = new System.Drawing.Point(20, 172);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(45, 13);
+            this.label18.Size = new System.Drawing.Size(65, 20);
             this.label18.TabIndex = 21;
             this.label18.Text = "Gender:";
             // 
@@ -416,120 +535,113 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(283, 117);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(0, 13);
+            this.label17.Size = new System.Drawing.Size(0, 20);
             this.label17.TabIndex = 20;
             // 
             // emField
             // 
             this.emField.AutoSize = true;
-            this.emField.Location = new System.Drawing.Point(93, 120);
+            this.emField.Location = new System.Drawing.Point(131, 136);
             this.emField.Name = "emField";
-            this.emField.Size = new System.Drawing.Size(0, 13);
+            this.emField.Size = new System.Drawing.Size(0, 20);
             this.emField.TabIndex = 19;
             // 
             // adField
             // 
             this.adField.AutoSize = true;
-            this.adField.Location = new System.Drawing.Point(283, 86);
+            this.adField.Location = new System.Drawing.Point(398, 104);
             this.adField.Name = "adField";
-            this.adField.Size = new System.Drawing.Size(0, 13);
+            this.adField.Size = new System.Drawing.Size(0, 20);
             this.adField.TabIndex = 18;
             // 
             // ocField
             // 
             this.ocField.AutoSize = true;
-            this.ocField.Location = new System.Drawing.Point(93, 82);
+            this.ocField.Location = new System.Drawing.Point(131, 104);
             this.ocField.Name = "ocField";
-            this.ocField.Size = new System.Drawing.Size(0, 13);
+            this.ocField.Size = new System.Drawing.Size(0, 20);
             this.ocField.TabIndex = 17;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(214, 117);
+            this.label16.Location = new System.Drawing.Point(319, 135);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(47, 13);
+            this.label16.Size = new System.Drawing.Size(67, 20);
             this.label16.TabIndex = 16;
             this.label16.Text = "Contact:";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(20, 117);
+            this.label15.Location = new System.Drawing.Point(21, 135);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(35, 13);
+            this.label15.Size = new System.Drawing.Size(51, 20);
             this.label15.TabIndex = 14;
             this.label15.Text = "Email:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(216, 86);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(48, 13);
-            this.label14.TabIndex = 12;
-            this.label14.Text = "Address:";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(20, 86);
+            this.label13.Location = new System.Drawing.Point(21, 104);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(65, 13);
+            this.label13.Size = new System.Drawing.Size(92, 20);
             this.label13.TabIndex = 10;
             this.label13.Text = "Occupation:";
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(201, 20);
+            this.button4.BackColor = System.Drawing.Color.SteelBlue;
+            this.button4.Location = new System.Drawing.Point(287, 18);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(90, 37);
             this.button4.TabIndex = 8;
             this.button4.Text = "Check";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // chkInBtn
             // 
+            this.chkInBtn.BackColor = System.Drawing.Color.SteelBlue;
             this.chkInBtn.Enabled = false;
-            this.chkInBtn.Location = new System.Drawing.Point(368, 149);
+            this.chkInBtn.Location = new System.Drawing.Point(323, 169);
             this.chkInBtn.Name = "chkInBtn";
-            this.chkInBtn.Size = new System.Drawing.Size(75, 23);
+            this.chkInBtn.Size = new System.Drawing.Size(105, 39);
             this.chkInBtn.TabIndex = 6;
             this.chkInBtn.Text = "Check In";
-            this.chkInBtn.UseVisualStyleBackColor = true;
+            this.chkInBtn.UseVisualStyleBackColor = false;
             this.chkInBtn.Click += new System.EventHandler(this.chkInBtn_Click);
             // 
             // cardField
             // 
-            this.cardField.Location = new System.Drawing.Point(96, 19);
+            this.cardField.Location = new System.Drawing.Point(135, 20);
             this.cardField.Name = "cardField";
-            this.cardField.Size = new System.Drawing.Size(98, 20);
+            this.cardField.Size = new System.Drawing.Size(148, 27);
             this.cardField.TabIndex = 0;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(20, 52);
+            this.label10.Location = new System.Drawing.Point(24, 70);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(35, 13);
+            this.label10.Size = new System.Drawing.Size(51, 20);
             this.label10.TabIndex = 3;
             this.label10.Text = "Name";
             // 
             // nmField
             // 
-            this.nmField.Location = new System.Drawing.Point(96, 45);
+            this.nmField.Location = new System.Drawing.Point(135, 63);
             this.nmField.Name = "nmField";
             this.nmField.ReadOnly = true;
-            this.nmField.Size = new System.Drawing.Size(177, 20);
+            this.nmField.Size = new System.Drawing.Size(242, 27);
             this.nmField.TabIndex = 1;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(20, 25);
+            this.label11.Location = new System.Drawing.Point(20, 26);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(72, 13);
+            this.label11.Size = new System.Drawing.Size(108, 20);
             this.label11.TabIndex = 2;
             this.label11.Text = "Card Number:";
             // 
@@ -539,7 +651,8 @@
             this.groupBox4.Controls.Add(this.checkChkIn);
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.checkCheckInTxt);
-            this.groupBox4.Location = new System.Drawing.Point(522, 35);
+            this.groupBox4.ForeColor = System.Drawing.Color.White;
+            this.groupBox4.Location = new System.Drawing.Point(605, 40);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(244, 147);
             this.groupBox4.TabIndex = 10;
@@ -548,20 +661,22 @@
             // 
             // checkChkIn
             // 
+            this.checkChkIn.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.checkChkIn.ForeColor = System.Drawing.Color.White;
             this.checkChkIn.Location = new System.Drawing.Point(146, 50);
             this.checkChkIn.Name = "checkChkIn";
-            this.checkChkIn.Size = new System.Drawing.Size(75, 23);
+            this.checkChkIn.Size = new System.Drawing.Size(75, 29);
             this.checkChkIn.TabIndex = 9;
             this.checkChkIn.Text = "Check";
-            this.checkChkIn.UseVisualStyleBackColor = true;
+            this.checkChkIn.UseVisualStyleBackColor = false;
             this.checkChkIn.Click += new System.EventHandler(this.checkChkIn_Click);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(28, 30);
+            this.label12.Location = new System.Drawing.Point(21, 29);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(72, 13);
+            this.label12.Size = new System.Drawing.Size(90, 17);
             this.label12.TabIndex = 11;
             this.label12.Text = "Card Number:";
             // 
@@ -569,7 +684,7 @@
             // 
             this.checkCheckInTxt.Location = new System.Drawing.Point(25, 52);
             this.checkCheckInTxt.Name = "checkCheckInTxt";
-            this.checkCheckInTxt.Size = new System.Drawing.Size(100, 20);
+            this.checkCheckInTxt.Size = new System.Drawing.Size(100, 22);
             this.checkCheckInTxt.TabIndex = 10;
             // 
             // dataGridView1
@@ -585,9 +700,19 @@
             this.outTime,
             this.totalTime,
             this.checkOut});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 223);
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 265);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(843, 197);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(843, 155);
             this.dataGridView1.TabIndex = 6;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -596,156 +721,305 @@
             this.cardNumber.DataPropertyName = "Card Number";
             this.cardNumber.HeaderText = "Card Number";
             this.cardNumber.Name = "cardNumber";
+            this.cardNumber.ReadOnly = true;
+            this.cardNumber.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // name
             // 
             this.name.DataPropertyName = "Name";
             this.name.HeaderText = "Name";
             this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // day
             // 
             this.day.DataPropertyName = "Day";
             this.day.HeaderText = "Day";
             this.day.Name = "day";
+            this.day.ReadOnly = true;
+            this.day.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // date
             // 
             this.date.DataPropertyName = "Date";
             this.date.HeaderText = "Date";
             this.date.Name = "date";
+            this.date.ReadOnly = true;
+            this.date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // inTime
             // 
             this.inTime.DataPropertyName = "In Time";
             this.inTime.HeaderText = "In Time";
             this.inTime.Name = "inTime";
+            this.inTime.ReadOnly = true;
+            this.inTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // outTime
             // 
             this.outTime.DataPropertyName = "Out Time";
             this.outTime.HeaderText = "Out Time";
             this.outTime.Name = "outTime";
+            this.outTime.ReadOnly = true;
+            this.outTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // totalTime
             // 
             this.totalTime.DataPropertyName = "Total Duration(Min)";
             this.totalTime.HeaderText = "Total Duration(Min)";
             this.totalTime.Name = "totalTime";
+            this.totalTime.ReadOnly = true;
+            this.totalTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // checkOut
             // 
             this.checkOut.HeaderText = "Check Out";
             this.checkOut.Name = "checkOut";
+            this.checkOut.ReadOnly = true;
             this.checkOut.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.checkOut.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.checkOut.Text = "Check Out";
             this.checkOut.UseColumnTextForButtonValue = true;
             // 
-            // label1
+            // pictureBox2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(271, 88);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Record";
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(607, 194);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(242, 247);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabStop = false;
             // 
-            // registerBar
+            // recordPanel
             // 
-            this.registerBar.Location = new System.Drawing.Point(363, 106);
-            this.registerBar.Name = "registerBar";
-            this.registerBar.Size = new System.Drawing.Size(74, 10);
-            this.registerBar.TabIndex = 4;
-            this.registerBar.Visible = false;
+            this.recordPanel.BackColor = System.Drawing.Color.LightSlateGray;
+            this.recordPanel.Controls.Add(this.groupBox3);
+            this.recordPanel.Controls.Add(this.label1);
+            this.recordPanel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recordPanel.Location = new System.Drawing.Point(33, 172);
+            this.recordPanel.Name = "recordPanel";
+            this.recordPanel.Size = new System.Drawing.Size(906, 477);
+            this.recordPanel.TabIndex = 3;
+            this.recordPanel.Visible = false;
             // 
-            // recordBar
+            // pictureBox3
             // 
-            this.recordBar.Location = new System.Drawing.Point(500, 106);
-            this.recordBar.Name = "recordBar";
-            this.recordBar.Size = new System.Drawing.Size(73, 10);
-            this.recordBar.TabIndex = 5;
-            this.recordBar.Visible = false;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(12, 27);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(56, 54);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 15;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
-            // menuStrip1
+            // barShow
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reportToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(966, 24);
-            this.menuStrip1.TabIndex = 12;
-            this.menuStrip1.Text = "menuStrip1";
+            this.barShow.BackColor = System.Drawing.Color.LightSlateGray;
+            this.barShow.Location = new System.Drawing.Point(-10, 121);
+            this.barShow.Name = "barShow";
+            this.barShow.Size = new System.Drawing.Size(456, 15);
+            this.barShow.TabIndex = 16;
             // 
-            // reportToolStripMenuItem
+            // dashboardPanel
             // 
-            this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dailyMEnu,
-            this.weeklyMenu});
-            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
-            this.reportToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.reportToolStripMenuItem.Text = "Report";
+            this.dashboardPanel.Controls.Add(this.dashCheckedIN);
+            this.dashboardPanel.Controls.Add(this.label23);
+            this.dashboardPanel.Controls.Add(this.visitorsCountLbl);
+            this.dashboardPanel.Controls.Add(this.label22);
+            this.dashboardPanel.Controls.Add(this.label21);
+            this.dashboardPanel.Controls.Add(this.dashCurrentDate);
+            this.dashboardPanel.Controls.Add(this.dashCurrentDay);
+            this.dashboardPanel.Controls.Add(this.timerLbl);
+            this.dashboardPanel.Controls.Add(this.label20);
+            this.dashboardPanel.Controls.Add(this.pictureBox4);
+            this.dashboardPanel.Controls.Add(this.label14);
+            this.dashboardPanel.Location = new System.Drawing.Point(0, 195);
+            this.dashboardPanel.Name = "dashboardPanel";
+            this.dashboardPanel.Size = new System.Drawing.Size(966, 476);
+            this.dashboardPanel.TabIndex = 14;
             // 
-            // dailyMEnu
+            // label14
             // 
-            this.dailyMEnu.Name = "dailyMEnu";
-            this.dailyMEnu.Size = new System.Drawing.Size(112, 22);
-            this.dailyMEnu.Text = "Daily";
-            this.dailyMEnu.Click += new System.EventHandler(this.dailyMEnu_Click);
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Bauhaus 93", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label14.Location = new System.Drawing.Point(356, 83);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(256, 54);
+            this.label14.TabIndex = 15;
+            this.label14.Text = "Dashboard";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
-            // weeklyMenu
+            // pictureBox4
             // 
-            this.weeklyMenu.Name = "weeklyMenu";
-            this.weeklyMenu.Size = new System.Drawing.Size(180, 22);
-            this.weeklyMenu.Text = "Weekly";
-            this.weeklyMenu.Click += new System.EventHandler(this.weeklyMenu_Click);
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(441, 3);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(94, 77);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 16;
+            this.pictureBox4.TabStop = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.Location = new System.Drawing.Point(67, 218);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(118, 21);
+            this.label20.TabIndex = 17;
+            this.label20.Text = "Today\'s date :";
+            // 
+            // timerLbl
+            // 
+            this.timerLbl.AutoSize = true;
+            this.timerLbl.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timerLbl.ForeColor = System.Drawing.Color.White;
+            this.timerLbl.Location = new System.Drawing.Point(187, 218);
+            this.timerLbl.Name = "timerLbl";
+            this.timerLbl.Size = new System.Drawing.Size(0, 21);
+            this.timerLbl.TabIndex = 18;
+            // 
+            // dashCurrentDay
+            // 
+            this.dashCurrentDay.AutoSize = true;
+            this.dashCurrentDay.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashCurrentDay.ForeColor = System.Drawing.Color.White;
+            this.dashCurrentDay.Location = new System.Drawing.Point(290, 218);
+            this.dashCurrentDay.Name = "dashCurrentDay";
+            this.dashCurrentDay.Size = new System.Drawing.Size(102, 21);
+            this.dashCurrentDay.TabIndex = 19;
+            this.dashCurrentDay.Text = "Wednesday";
+            // 
+            // dashCurrentDate
+            // 
+            this.dashCurrentDate.AutoSize = true;
+            this.dashCurrentDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashCurrentDate.ForeColor = System.Drawing.Color.White;
+            this.dashCurrentDate.Location = new System.Drawing.Point(396, 218);
+            this.dashCurrentDate.Name = "dashCurrentDate";
+            this.dashCurrentDate.Size = new System.Drawing.Size(114, 21);
+            this.dashCurrentDate.TabIndex = 20;
+            this.dashCurrentDate.Text = "Current Time:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.White;
+            this.label21.Location = new System.Drawing.Point(386, 218);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(14, 21);
+            this.label21.TabIndex = 21;
+            this.label21.Text = ",";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.White;
+            this.label22.Location = new System.Drawing.Point(67, 265);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(123, 21);
+            this.label22.TabIndex = 22;
+            this.label22.Text = "Visitors Count :";
+            // 
+            // visitorsCountLbl
+            // 
+            this.visitorsCountLbl.AutoSize = true;
+            this.visitorsCountLbl.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.visitorsCountLbl.ForeColor = System.Drawing.Color.White;
+            this.visitorsCountLbl.Location = new System.Drawing.Point(192, 265);
+            this.visitorsCountLbl.Name = "visitorsCountLbl";
+            this.visitorsCountLbl.Size = new System.Drawing.Size(119, 21);
+            this.visitorsCountLbl.TabIndex = 23;
+            this.visitorsCountLbl.Text = "Visitors Count:";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.White;
+            this.label23.Location = new System.Drawing.Point(66, 316);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(235, 21);
+            this.label23.TabIndex = 24;
+            this.label23.Text = "Visitors currently checked in : \r\n";
+            // 
+            // dashCheckedIN
+            // 
+            this.dashCheckedIN.AutoSize = true;
+            this.dashCheckedIN.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashCheckedIN.ForeColor = System.Drawing.Color.White;
+            this.dashCheckedIN.Location = new System.Drawing.Point(307, 316);
+            this.dashCheckedIN.Name = "dashCheckedIN";
+            this.dashCheckedIN.Size = new System.Drawing.Size(0, 21);
+            this.dashCheckedIN.TabIndex = 26;
             // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(966, 749);
+            this.BackColor = System.Drawing.Color.LightSlateGray;
+            this.ClientSize = new System.Drawing.Size(966, 668);
             this.Controls.Add(this.recordPanel);
+            this.Controls.Add(this.dashboardPanel);
             this.Controls.Add(this.registerPanel);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.recordBar);
-            this.Controls.Add(this.registerBar);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.DoubleBuffered = true;
             this.Name = "Dashboard";
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.Dashboard_Load);
-            this.registerPanel.ResumeLayout(false);
-            this.registerPanel.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.recordPanel.ResumeLayout(false);
-            this.recordPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.registerPanel.ResumeLayout(false);
+            this.registerPanel.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.recordPanel.ResumeLayout(false);
+            this.recordPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.dashboardPanel.ResumeLayout(false);
+            this.dashboardPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dailyMEnu;
+        private System.Windows.Forms.ToolStripMenuItem weeklyMenu;
+        private System.Windows.Forms.Label headerLabel;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel registerPanel;
-        private System.Windows.Forms.Panel recordPanel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label Register;
-        private System.Windows.Forms.ProgressBar registerBar;
-        private System.Windows.Forms.ProgressBar recordBar;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button generate;
         private System.Windows.Forms.TextBox occupationTxt;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -763,8 +1037,22 @@
         private System.Windows.Forms.ComboBox genderTxt;
         private System.Windows.Forms.TextBox firstNameTxt;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel registerPanel;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label conField;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label gnField;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label emField;
+        private System.Windows.Forms.Label adField;
+        private System.Windows.Forms.Label ocField;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button chkInBtn;
         private System.Windows.Forms.TextBox cardField;
@@ -784,22 +1072,22 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn outTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalTime;
         private System.Windows.Forms.DataGridViewButtonColumn checkOut;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dailyMEnu;
-        private System.Windows.Forms.ToolStripMenuItem weeklyMenu;
-        private System.Windows.Forms.Button generate;
-        private System.Windows.Forms.Label gnField;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label emField;
-        private System.Windows.Forms.Label adField;
-        private System.Windows.Forms.Label ocField;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel recordPanel;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Panel barShow;
+        private System.Windows.Forms.Panel dashboardPanel;
+        private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label conField;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label timerLbl;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label dashCurrentDate;
+        private System.Windows.Forms.Label dashCurrentDay;
+        private System.Windows.Forms.Label visitorsCountLbl;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label dashCheckedIN;
+        private System.Windows.Forms.Label label23;
     }
 }

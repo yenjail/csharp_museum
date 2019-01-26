@@ -77,6 +77,8 @@ namespace ApplicationDev
 
                 
                 this.dataGridView1.Rows.Add(days[i], visitors.ToString(), totalMin.ToString());
+                this.chart1.Series["Total Visitor"].Points.AddXY(days[i], visitors.ToString());
+                this.chart1.Series["Total time"].Points.AddXY(days[i], totalMin.ToString());
 
                 /*
                  * 
@@ -137,7 +139,7 @@ namespace ApplicationDev
             List<string> ls = new List<string>();
 
 
-            using (StreamReader sr = new StreamReader("C:\\Users\\anjil\\Desktop\\checkins.csv"))
+            using (StreamReader sr = new StreamReader("../../../checkins.csv"))
             {
                 string line;
 
@@ -163,6 +165,129 @@ namespace ApplicationDev
         private void WeeklyReport_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void sortA_Click(object sender, EventArgs e)
+        {
+            //Console.WriteLine("Row:  "+row);
+            Console.WriteLine("Total Rows: " + dataGridView1.RowCount + ", Cell:  " + dataGridView1.ColumnCount);
+            //chkD.Cells[6].Value
+            string[,] datavalue = new string[dataGridView1.Rows.Count - 1, dataGridView1.Columns.Count];
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+
+                foreach (DataGridViewColumn col in dataGridView1.Columns)
+                {
+                    if (dataGridView1.Rows[row.Index].Cells[col.Index].Value != null && dataGridView1.Rows[row.Index].Cells[col.Index].Value.ToString() != "")
+                    {
+                        datavalue[row.Index, col.Index] = dataGridView1.Rows[row.Index].Cells[col.Index].Value.ToString();
+                    }
+                }
+
+            }
+
+            string[] temp = new string[3];
+            Console.WriteLine("Lgth " + datavalue.GetLength(0) + " R: " + (dataGridView1.Rows.Count - 1));
+            Console.WriteLine(" Data D: "+ datavalue[4,2]);
+
+
+            for (int i = 0; i < datavalue.GetLength(0)-1; i++)
+            {
+
+                int j;
+                j = 0;
+                for (; j < datavalue.GetLength(0)-1; j++)
+                {
+                    if (Int32.Parse(datavalue[j, 1]) > Int32.Parse(datavalue[j + 1, 1])) {
+                        //put array record j into temp holder
+                        temp[0] = datavalue[j, 0];
+                        temp[1] = datavalue[j, 1];
+                        temp[2] = datavalue[j, 2];
+
+                        //copy j + 1 into j
+                        datavalue[j, 0] = datavalue[j + 1, 0];
+                        datavalue[j, 1] = datavalue[j + 1, 1];
+                        datavalue[j, 2] = datavalue[j + 1, 2];
+
+                        //copy temp into j + 1
+                        datavalue[j + 1, 0] = temp[0];
+                        datavalue[j + 1, 1] = temp[1];
+                        datavalue[j + 1, 2] = temp[2];
+                    }
+
+                }
+            }
+
+            Console.WriteLine("Sorted array: "+datavalue[4,2]);
+            this.dataGridView1.Rows.Clear();
+            this.dataGridView1.Refresh();
+            for (int i = 0; i < datavalue.GetLength(0); i++)
+            {
+                Console.WriteLine(datavalue[i, 0] + " , " + datavalue[i, 1] + " , " + datavalue[i, 2]);
+                this.dataGridView1.Rows.Add(datavalue[i, 0], datavalue[i, 1], datavalue[i, 2]);
+            }
+        }
+
+        private void sortD_Click(object sender, EventArgs e)
+        {
+            //Console.WriteLine("Row:  "+row);
+            Console.WriteLine("Total Rows: " + dataGridView1.RowCount + ", Cell:  " + dataGridView1.ColumnCount);
+            //chkD.Cells[6].Value
+            string[,] datavalue = new string[dataGridView1.Rows.Count - 1, dataGridView1.Columns.Count];
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+
+                foreach (DataGridViewColumn col in dataGridView1.Columns)
+                {
+                    if (dataGridView1.Rows[row.Index].Cells[col.Index].Value != null && dataGridView1.Rows[row.Index].Cells[col.Index].Value.ToString() != "")
+                    {
+                        datavalue[row.Index, col.Index] = dataGridView1.Rows[row.Index].Cells[col.Index].Value.ToString();
+                    }
+                }
+
+            }
+
+            string[] temp = new string[3];
+            Console.WriteLine("Lgth " + datavalue.GetLength(0) + " R: " + (dataGridView1.Rows.Count - 1));
+            Console.WriteLine(" Data D: " + datavalue[4, 2]);
+
+
+            for (int i = 0; i < datavalue.GetLength(0) - 1; i++)
+            {
+
+                int j;
+                j = 0;
+                for (; j < datavalue.GetLength(0) - 1; j++)
+                {
+                    if (Int32.Parse(datavalue[j, 2]) > Int32.Parse(datavalue[j + 1, 2]))
+                    {
+                        //put array record j into temp holder
+                        temp[0] = datavalue[j, 0];
+                        temp[1] = datavalue[j, 1];
+                        temp[2] = datavalue[j, 2];
+
+                        //copy j + 1 into j
+                        datavalue[j, 0] = datavalue[j + 1, 0];
+                        datavalue[j, 1] = datavalue[j + 1, 1];
+                        datavalue[j, 2] = datavalue[j + 1, 2];
+
+                        //copy temp into j + 1
+                        datavalue[j + 1, 0] = temp[0];
+                        datavalue[j + 1, 1] = temp[1];
+                        datavalue[j + 1, 2] = temp[2];
+                    }
+
+                }
+            }
+
+            Console.WriteLine("Sorted array: " + datavalue[4, 2]);
+            this.dataGridView1.Rows.Clear();
+            this.dataGridView1.Refresh();
+            for (int i = 0; i < datavalue.GetLength(0); i++)
+            {
+                Console.WriteLine(datavalue[i, 0] + " , " + datavalue[i, 1] + " , " + datavalue[i, 2]);
+                this.dataGridView1.Rows.Add(datavalue[i, 0], datavalue[i, 1], datavalue[i, 2]);
+            }
         }
     }
 }

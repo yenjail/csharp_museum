@@ -23,7 +23,7 @@ namespace ApplicationDev
         public static List<string> readVisitors()
         {
             List<string> ls = new List<string>();
-            using (StreamReader sr = new StreamReader("C:\\Users\\anjil\\Desktop\\desm.csv"))
+            using (StreamReader sr = new StreamReader("../../../desm.csv"))
             {
                 string line;
 
