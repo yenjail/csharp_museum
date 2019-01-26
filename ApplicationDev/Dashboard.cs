@@ -442,7 +442,7 @@ namespace ApplicationDev
             Visitor existinVisitor = ls.Where(x => x.card_number == cardField.Text).FirstOrDefault();
             if (existinVisitor != null && existinVisitor.card_number == cardField.Text)
             {
-                nmField.Text = existinVisitor.first_name;
+                nmField.Text = existinVisitor.first_name+" "+existinVisitor.last_name;
                 ocField.Text = existinVisitor.occupation;
                 adField.Text = existinVisitor.address;
                 emField.Text = existinVisitor.email;
@@ -763,7 +763,7 @@ namespace ApplicationDev
                 //cardField.Text = row.ToString();
                 DataGridViewRow chkD = dataGridView1.Rows[rowVal];
 
-
+                if (chkD.Cells[6].Value.ToString() == "") { 
                 chkD.Cells[6].Value = DateTime.Now.ToLongTimeString();
                 Console.WriteLine("Cel data: " + chkD.Cells[6].Value);
                 chkData[5] = chkD.Cells[6].Value.ToString();
@@ -773,40 +773,41 @@ namespace ApplicationDev
                 chkData[6] = chkD.Cells[7].Value.ToString();
                 Console.WriteLine("Cell Value of date: " + DateTime.Parse(chkD.Cells[5].Value.ToString()));
 
-                foreach (CheckIn c1 in ch)
-                {
-                    if (c1.checkIn_time == chkD.Cells[5].Value.ToString() && c1.card_number == chkD.Cells[1].Value.ToString())
+                    foreach (CheckIn c1 in ch)
                     {
-                        Console.WriteLine("Found: " + c1.checkIn_time + " " + c1.card_number);
-                        c1.checkOut_time = chkD.Cells[6].Value.ToString();
-                        c1.total_time = chkD.Cells[7].Value.ToString();
-                        string path = "../../../checkins.csv";
-
-                        if (!File.Exists(path))
+                        if (c1.checkIn_time == chkD.Cells[5].Value.ToString() && c1.card_number == chkD.Cells[1].Value.ToString())
                         {
-                            File.Create(path);
+                            Console.WriteLine("Found: " + c1.checkIn_time + " " + c1.card_number);
+                            c1.checkOut_time = chkD.Cells[6].Value.ToString();
+                            c1.total_time = chkD.Cells[7].Value.ToString();
+                            string path = "../../../checkins.csv";
 
-                        }
-
-                        using (StreamWriter writer = new StreamWriter(path, append: false))
-                        {
-
-
-                            foreach (CheckIn c in ch)
+                            if (!File.Exists(path))
                             {
-                                writer.WriteLine(c.card_number + "," + c.name + "," + c.day + "," + c.date + "," + c.checkIn_time + "," + c.checkOut_time + "," + c.total_time);
+                                File.Create(path);
+
                             }
 
+                            using (StreamWriter writer = new StreamWriter(path, append: false))
+                            {
 
 
+                                foreach (CheckIn c in ch)
+                                {
+                                    writer.WriteLine(c.card_number + "," + c.name + "," + c.day + "," + c.date + "," + c.checkIn_time + "," + c.checkOut_time + "," + c.total_time);
+                                }
+
+
+
+                            }
+                            //C
+
+                            break;
                         }
-                        //C
-
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Not Found: ");
+                        else
+                        {
+                            Console.WriteLine("Not Found: ");
+                        }
                     }
                 }
 
@@ -897,6 +898,8 @@ namespace ApplicationDev
             barShow.Width = headerLabel.Width+50;
             this.barShow.Location = new System.Drawing.Point(0, 125);
             this.dashboardPanel.Visible = true;
+            this.recordPanel.Visible = false;
+            this.registerPanel.Visible = false;
 
         }
 
@@ -911,5 +914,30 @@ namespace ApplicationDev
              
 
         }
+
+        private void srchBtn_Click(object sender, EventArgs e)
+        {
+            List<string> forSearch = readCheckIns();
+
+            var visit = from visitor in forSearch
+
+                        where visitor.Contains(searchBox.Text)
+                        select visitor;
+            if (searchBox.Text.Length==10 && visit.Count() >0)
+            {
+                
+                Search search = new Search(forSearch,searchBox.Text);
+                search.Show();
+               
+
+            }
+            else {
+                MessageBox.Show("Not found." );
+            }
+
+
+        }
+
+      
     }
 }

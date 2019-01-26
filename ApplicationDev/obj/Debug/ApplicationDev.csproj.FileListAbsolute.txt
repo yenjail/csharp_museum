@@ -13,3 +13,4 @@ D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Debug\ApplicationDev.Regi
 D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Debug\ApplicationDev.LoginPanel.resources
 D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Debug\ApplicationDev.DailyReport.resources
 D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Debug\ApplicationDev.WeeklyReport.resources
+D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Debug\ApplicationDev.Search.resources

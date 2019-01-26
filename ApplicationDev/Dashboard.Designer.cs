@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dailyMEnu = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,6 +39,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.searchBox = new System.Windows.Forms.TextBox();
+            this.srchBtn = new System.Windows.Forms.Button();
+            this.barShow = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.Register = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.generate = new System.Windows.Forms.Button();
@@ -96,23 +100,24 @@
             this.checkOut = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.recordPanel = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.barShow = new System.Windows.Forms.Panel();
             this.dashboardPanel = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label20 = new System.Windows.Forms.Label();
-            this.timerLbl = new System.Windows.Forms.Label();
-            this.dashCurrentDay = new System.Windows.Forms.Label();
-            this.dashCurrentDate = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.visitorsCountLbl = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.dashCheckedIN = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.visitorsCountLbl = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.dashCurrentDate = new System.Windows.Forms.Label();
+            this.dashCurrentDay = new System.Windows.Forms.Label();
+            this.timerLbl = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label24 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.registerPanel.SuspendLayout();
@@ -122,9 +127,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.recordPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.dashboardPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -150,20 +155,21 @@
             // dailyMEnu
             // 
             this.dailyMEnu.Name = "dailyMEnu";
-            this.dailyMEnu.Size = new System.Drawing.Size(180, 26);
+            this.dailyMEnu.Size = new System.Drawing.Size(134, 26);
             this.dailyMEnu.Text = "Daily";
             this.dailyMEnu.Click += new System.EventHandler(this.dailyMEnu_Click);
             // 
             // weeklyMenu
             // 
             this.weeklyMenu.Name = "weeklyMenu";
-            this.weeklyMenu.Size = new System.Drawing.Size(180, 26);
+            this.weeklyMenu.Size = new System.Drawing.Size(134, 26);
             this.weeklyMenu.Text = "Weekly";
             this.weeklyMenu.Click += new System.EventHandler(this.weeklyMenu_Click);
             // 
             // headerLabel
             // 
             this.headerLabel.AutoSize = true;
+            this.headerLabel.Cursor = System.Windows.Forms.Cursors.Help;
             this.headerLabel.Font = new System.Drawing.Font("Bauhaus 93", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.headerLabel.ForeColor = System.Drawing.Color.White;
             this.headerLabel.Location = new System.Drawing.Point(69, 31);
@@ -214,6 +220,8 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel1.Controls.Add(this.searchBox);
+            this.panel1.Controls.Add(this.srchBtn);
             this.panel1.Controls.Add(this.barShow);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.headerLabel);
@@ -223,6 +231,53 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(966, 136);
             this.panel1.TabIndex = 13;
+            // 
+            // searchBox
+            // 
+            this.searchBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.searchBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.searchBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBox.ForeColor = System.Drawing.Color.White;
+            this.searchBox.Location = new System.Drawing.Point(737, 18);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(95, 22);
+            this.searchBox.TabIndex = 28;
+            // 
+            // srchBtn
+            // 
+            this.srchBtn.FlatAppearance.BorderSize = 0;
+            this.srchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.srchBtn.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.srchBtn.ForeColor = System.Drawing.Color.White;
+            this.srchBtn.Image = ((System.Drawing.Image)(resources.GetObject("srchBtn.Image")));
+            this.srchBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.srchBtn.Location = new System.Drawing.Point(835, 14);
+            this.srchBtn.Name = "srchBtn";
+            this.srchBtn.Size = new System.Drawing.Size(130, 29);
+            this.srchBtn.TabIndex = 27;
+            this.srchBtn.Text = "Search Visitor";
+            this.srchBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.srchBtn.UseVisualStyleBackColor = true;
+            this.srchBtn.Click += new System.EventHandler(this.srchBtn_Click);
+            // 
+            // barShow
+            // 
+            this.barShow.BackColor = System.Drawing.Color.LightSlateGray;
+            this.barShow.Location = new System.Drawing.Point(-10, 121);
+            this.barShow.Name = "barShow";
+            this.barShow.Size = new System.Drawing.Size(456, 15);
+            this.barShow.TabIndex = 16;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(12, 27);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(56, 54);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 15;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // Register
             // 
@@ -254,9 +309,9 @@
             this.groupBox1.Controls.Add(this.genderTxt);
             this.groupBox1.Controls.Add(this.firstNameTxt);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(31, 19);
+            this.groupBox1.Location = new System.Drawing.Point(37, 19);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(568, 246);
             this.groupBox1.TabIndex = 1;
@@ -265,13 +320,17 @@
             // 
             // generate
             // 
-            this.generate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.generate.BackColor = System.Drawing.Color.LightSlateGray;
+            this.generate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.generate.ForeColor = System.Drawing.Color.White;
-            this.generate.Location = new System.Drawing.Point(323, 35);
+            this.generate.Image = ((System.Drawing.Image)(resources.GetObject("generate.Image")));
+            this.generate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.generate.Location = new System.Drawing.Point(322, 30);
             this.generate.Name = "generate";
-            this.generate.Size = new System.Drawing.Size(91, 27);
+            this.generate.Size = new System.Drawing.Size(121, 37);
             this.generate.TabIndex = 19;
             this.generate.Text = "Generate";
+            this.generate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.generate.UseVisualStyleBackColor = false;
             this.generate.Click += new System.EventHandler(this.generate_Click);
             // 
@@ -279,7 +338,7 @@
             // 
             this.occupationTxt.Location = new System.Drawing.Point(429, 152);
             this.occupationTxt.Name = "occupationTxt";
-            this.occupationTxt.Size = new System.Drawing.Size(121, 27);
+            this.occupationTxt.Size = new System.Drawing.Size(121, 26);
             this.occupationTxt.TabIndex = 18;
             // 
             // label8
@@ -287,7 +346,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(319, 159);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(88, 20);
+            this.label8.Size = new System.Drawing.Size(98, 20);
             this.label8.TabIndex = 17;
             this.label8.Text = "Occupation";
             // 
@@ -296,7 +355,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(319, 75);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(84, 20);
+            this.label7.Size = new System.Drawing.Size(85, 20);
             this.label7.TabIndex = 16;
             this.label7.Text = "Last Name";
             // 
@@ -313,14 +372,14 @@
             // 
             this.last_nameTxt.Location = new System.Drawing.Point(429, 72);
             this.last_nameTxt.Name = "last_nameTxt";
-            this.last_nameTxt.Size = new System.Drawing.Size(121, 27);
+            this.last_nameTxt.Size = new System.Drawing.Size(121, 26);
             this.last_nameTxt.TabIndex = 14;
             // 
             // emailTxt
             // 
             this.emailTxt.Location = new System.Drawing.Point(429, 114);
             this.emailTxt.Name = "emailTxt";
-            this.emailTxt.Size = new System.Drawing.Size(121, 27);
+            this.emailTxt.Size = new System.Drawing.Size(121, 26);
             this.emailTxt.TabIndex = 13;
             // 
             // regCardNumber
@@ -328,7 +387,7 @@
             this.regCardNumber.Enabled = false;
             this.regCardNumber.Location = new System.Drawing.Point(169, 36);
             this.regCardNumber.Name = "regCardNumber";
-            this.regCardNumber.Size = new System.Drawing.Size(120, 27);
+            this.regCardNumber.Size = new System.Drawing.Size(120, 26);
             this.regCardNumber.TabIndex = 12;
             // 
             // label5
@@ -336,7 +395,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(64, 40);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(103, 20);
+            this.label5.Size = new System.Drawing.Size(108, 20);
             this.label5.TabIndex = 11;
             this.label5.Text = "Card Number";
             // 
@@ -344,7 +403,7 @@
             // 
             this.contactTxt.Location = new System.Drawing.Point(169, 114);
             this.contactTxt.Name = "contactTxt";
-            this.contactTxt.Size = new System.Drawing.Size(121, 27);
+            this.contactTxt.Size = new System.Drawing.Size(121, 26);
             this.contactTxt.TabIndex = 10;
             // 
             // label4
@@ -352,7 +411,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(64, 121);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 20);
+            this.label4.Size = new System.Drawing.Size(70, 20);
             this.label4.TabIndex = 9;
             this.label4.Text = "Contact";
             // 
@@ -360,7 +419,7 @@
             // 
             this.addressText.Location = new System.Drawing.Point(169, 152);
             this.addressText.Name = "addressText";
-            this.addressText.Size = new System.Drawing.Size(121, 27);
+            this.addressText.Size = new System.Drawing.Size(121, 26);
             this.addressText.TabIndex = 8;
             // 
             // label2
@@ -368,7 +427,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(67, 155);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 20);
+            this.label2.Size = new System.Drawing.Size(67, 20);
             this.label2.TabIndex = 7;
             this.label2.Text = "Address";
             // 
@@ -377,19 +436,23 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(67, 194);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 20);
+            this.label3.Size = new System.Drawing.Size(66, 20);
             this.label3.TabIndex = 6;
             this.label3.Text = "Gender";
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button3.BackColor = System.Drawing.Color.LightSlateGray;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.Location = new System.Drawing.Point(438, 199);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(112, 37);
+            this.button3.Size = new System.Drawing.Size(100, 37);
             this.button3.TabIndex = 5;
             this.button3.Text = "Register";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
@@ -409,7 +472,7 @@
             // 
             this.firstNameTxt.Location = new System.Drawing.Point(169, 72);
             this.firstNameTxt.Name = "firstNameTxt";
-            this.firstNameTxt.Size = new System.Drawing.Size(121, 27);
+            this.firstNameTxt.Size = new System.Drawing.Size(121, 26);
             this.firstNameTxt.TabIndex = 1;
             // 
             // label9
@@ -417,7 +480,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(64, 75);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(86, 20);
+            this.label9.Size = new System.Drawing.Size(83, 20);
             this.label9.TabIndex = 0;
             this.label9.Text = "First Name";
             // 
@@ -487,7 +550,7 @@
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.nmField);
             this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(17, 26);
             this.groupBox2.Name = "groupBox2";
@@ -509,9 +572,9 @@
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(319, 104);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(65, 20);
+            this.label19.Size = new System.Drawing.Size(74, 20);
             this.label19.TabIndex = 23;
-            this.label19.Text = "Gender:";
+            this.label19.Text = "Gender :";
             // 
             // gnField
             // 
@@ -526,9 +589,9 @@
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(20, 172);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(65, 20);
+            this.label18.Size = new System.Drawing.Size(74, 20);
             this.label18.TabIndex = 21;
-            this.label18.Text = "Gender:";
+            this.label18.Text = "Gender :";
             // 
             // label17
             // 
@@ -567,36 +630,40 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(319, 135);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(67, 20);
+            this.label16.Size = new System.Drawing.Size(78, 20);
             this.label16.TabIndex = 16;
-            this.label16.Text = "Contact:";
+            this.label16.Text = "Contact :";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(21, 135);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(51, 20);
+            this.label15.Size = new System.Drawing.Size(54, 20);
             this.label15.TabIndex = 14;
-            this.label15.Text = "Email:";
+            this.label15.Text = "Email :";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(21, 104);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(92, 20);
+            this.label13.Size = new System.Drawing.Size(110, 20);
             this.label13.TabIndex = 10;
-            this.label13.Text = "Occupation:";
+            this.label13.Text = "Occupation : ";
             // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.SteelBlue;
-            this.button4.Location = new System.Drawing.Point(287, 18);
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(290, 15);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(90, 37);
             this.button4.TabIndex = 8;
             this.button4.Text = "Check";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -604,11 +671,15 @@
             // 
             this.chkInBtn.BackColor = System.Drawing.Color.SteelBlue;
             this.chkInBtn.Enabled = false;
-            this.chkInBtn.Location = new System.Drawing.Point(323, 169);
+            this.chkInBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkInBtn.Image = ((System.Drawing.Image)(resources.GetObject("chkInBtn.Image")));
+            this.chkInBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.chkInBtn.Location = new System.Drawing.Point(322, 169);
             this.chkInBtn.Name = "chkInBtn";
             this.chkInBtn.Size = new System.Drawing.Size(105, 39);
             this.chkInBtn.TabIndex = 6;
             this.chkInBtn.Text = "Check In";
+            this.chkInBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.chkInBtn.UseVisualStyleBackColor = false;
             this.chkInBtn.Click += new System.EventHandler(this.chkInBtn_Click);
             // 
@@ -616,7 +687,7 @@
             // 
             this.cardField.Location = new System.Drawing.Point(135, 20);
             this.cardField.Name = "cardField";
-            this.cardField.Size = new System.Drawing.Size(148, 27);
+            this.cardField.Size = new System.Drawing.Size(148, 26);
             this.cardField.TabIndex = 0;
             // 
             // label10
@@ -624,16 +695,16 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(24, 70);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(51, 20);
+            this.label10.Size = new System.Drawing.Size(65, 20);
             this.label10.TabIndex = 3;
-            this.label10.Text = "Name";
+            this.label10.Text = "Name : ";
             // 
             // nmField
             // 
             this.nmField.Location = new System.Drawing.Point(135, 63);
             this.nmField.Name = "nmField";
             this.nmField.ReadOnly = true;
-            this.nmField.Size = new System.Drawing.Size(242, 27);
+            this.nmField.Size = new System.Drawing.Size(242, 26);
             this.nmField.TabIndex = 1;
             // 
             // label11
@@ -641,9 +712,9 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(20, 26);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(108, 20);
+            this.label11.Size = new System.Drawing.Size(116, 20);
             this.label11.TabIndex = 2;
-            this.label11.Text = "Card Number:";
+            this.label11.Text = "Card Number :";
             // 
             // groupBox4
             // 
@@ -652,9 +723,9 @@
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.checkCheckInTxt);
             this.groupBox4.ForeColor = System.Drawing.Color.White;
-            this.groupBox4.Location = new System.Drawing.Point(605, 40);
+            this.groupBox4.Location = new System.Drawing.Point(652, 51);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(244, 147);
+            this.groupBox4.Size = new System.Drawing.Size(154, 147);
             this.groupBox4.TabIndex = 10;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Check Out";
@@ -662,29 +733,35 @@
             // checkChkIn
             // 
             this.checkChkIn.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.checkChkIn.FlatAppearance.BorderSize = 0;
+            this.checkChkIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkChkIn.ForeColor = System.Drawing.Color.White;
-            this.checkChkIn.Location = new System.Drawing.Point(146, 50);
+            this.checkChkIn.Image = ((System.Drawing.Image)(resources.GetObject("checkChkIn.Image")));
+            this.checkChkIn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.checkChkIn.Location = new System.Drawing.Point(24, 81);
             this.checkChkIn.Name = "checkChkIn";
-            this.checkChkIn.Size = new System.Drawing.Size(75, 29);
+            this.checkChkIn.Size = new System.Drawing.Size(107, 47);
             this.checkChkIn.TabIndex = 9;
-            this.checkChkIn.Text = "Check";
+            this.checkChkIn.Text = "Check Out";
+            this.checkChkIn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.checkChkIn.UseVisualStyleBackColor = false;
             this.checkChkIn.Click += new System.EventHandler(this.checkChkIn_Click);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(21, 29);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(90, 17);
             this.label12.TabIndex = 11;
-            this.label12.Text = "Card Number:";
+            this.label12.Text = "Card Number ";
             // 
             // checkCheckInTxt
             // 
             this.checkCheckInTxt.Location = new System.Drawing.Point(25, 52);
             this.checkCheckInTxt.Name = "checkCheckInTxt";
-            this.checkCheckInTxt.Size = new System.Drawing.Size(100, 22);
+            this.checkCheckInTxt.Size = new System.Drawing.Size(106, 22);
             this.checkCheckInTxt.TabIndex = 10;
             // 
             // dataGridView1
@@ -700,14 +777,14 @@
             this.outTime,
             this.totalTime,
             this.checkOut});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dataGridView1.Location = new System.Drawing.Point(6, 265);
             this.dataGridView1.Name = "dataGridView1";
@@ -803,25 +880,6 @@
             this.recordPanel.TabIndex = 3;
             this.recordPanel.Visible = false;
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(12, 27);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(56, 54);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 15;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-            // 
-            // barShow
-            // 
-            this.barShow.BackColor = System.Drawing.Color.LightSlateGray;
-            this.barShow.Location = new System.Drawing.Point(-10, 121);
-            this.barShow.Name = "barShow";
-            this.barShow.Size = new System.Drawing.Size(456, 15);
-            this.barShow.TabIndex = 16;
-            // 
             // dashboardPanel
             // 
             this.dashboardPanel.Controls.Add(this.dashCheckedIN);
@@ -837,8 +895,115 @@
             this.dashboardPanel.Controls.Add(this.label14);
             this.dashboardPanel.Location = new System.Drawing.Point(0, 195);
             this.dashboardPanel.Name = "dashboardPanel";
-            this.dashboardPanel.Size = new System.Drawing.Size(966, 476);
+            this.dashboardPanel.Size = new System.Drawing.Size(966, 461);
             this.dashboardPanel.TabIndex = 14;
+            // 
+            // dashCheckedIN
+            // 
+            this.dashCheckedIN.AutoSize = true;
+            this.dashCheckedIN.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashCheckedIN.ForeColor = System.Drawing.Color.White;
+            this.dashCheckedIN.Location = new System.Drawing.Point(307, 316);
+            this.dashCheckedIN.Name = "dashCheckedIN";
+            this.dashCheckedIN.Size = new System.Drawing.Size(0, 21);
+            this.dashCheckedIN.TabIndex = 26;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.White;
+            this.label23.Location = new System.Drawing.Point(66, 316);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(235, 21);
+            this.label23.TabIndex = 24;
+            this.label23.Text = "Visitors currently checked in : \r\n";
+            // 
+            // visitorsCountLbl
+            // 
+            this.visitorsCountLbl.AutoSize = true;
+            this.visitorsCountLbl.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.visitorsCountLbl.ForeColor = System.Drawing.Color.White;
+            this.visitorsCountLbl.Location = new System.Drawing.Point(247, 265);
+            this.visitorsCountLbl.Name = "visitorsCountLbl";
+            this.visitorsCountLbl.Size = new System.Drawing.Size(119, 21);
+            this.visitorsCountLbl.TabIndex = 23;
+            this.visitorsCountLbl.Text = "Visitors Count:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.White;
+            this.label22.Location = new System.Drawing.Point(67, 265);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(174, 21);
+            this.label22.TabIndex = 22;
+            this.label22.Text = "Visitors Count today :";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.White;
+            this.label21.Location = new System.Drawing.Point(386, 218);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(14, 21);
+            this.label21.TabIndex = 21;
+            this.label21.Text = ",";
+            // 
+            // dashCurrentDate
+            // 
+            this.dashCurrentDate.AutoSize = true;
+            this.dashCurrentDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashCurrentDate.ForeColor = System.Drawing.Color.White;
+            this.dashCurrentDate.Location = new System.Drawing.Point(396, 218);
+            this.dashCurrentDate.Name = "dashCurrentDate";
+            this.dashCurrentDate.Size = new System.Drawing.Size(114, 21);
+            this.dashCurrentDate.TabIndex = 20;
+            this.dashCurrentDate.Text = "Current Time:";
+            // 
+            // dashCurrentDay
+            // 
+            this.dashCurrentDay.AutoSize = true;
+            this.dashCurrentDay.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashCurrentDay.ForeColor = System.Drawing.Color.White;
+            this.dashCurrentDay.Location = new System.Drawing.Point(290, 218);
+            this.dashCurrentDay.Name = "dashCurrentDay";
+            this.dashCurrentDay.Size = new System.Drawing.Size(102, 21);
+            this.dashCurrentDay.TabIndex = 19;
+            this.dashCurrentDay.Text = "Wednesday";
+            // 
+            // timerLbl
+            // 
+            this.timerLbl.AutoSize = true;
+            this.timerLbl.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timerLbl.ForeColor = System.Drawing.Color.White;
+            this.timerLbl.Location = new System.Drawing.Point(187, 218);
+            this.timerLbl.Name = "timerLbl";
+            this.timerLbl.Size = new System.Drawing.Size(0, 21);
+            this.timerLbl.TabIndex = 18;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.Location = new System.Drawing.Point(67, 218);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(118, 21);
+            this.label20.TabIndex = 17;
+            this.label20.Text = "Today\'s date :";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(441, 3);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(94, 77);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 16;
+            this.pictureBox4.TabStop = false;
             // 
             // label14
             // 
@@ -853,130 +1018,45 @@
             this.label14.Text = "Dashboard";
             this.label14.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(441, 3);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(94, 77);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 16;
-            this.pictureBox4.TabStop = false;
-            // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // label20
+            // label24
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(67, 218);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(118, 21);
-            this.label20.TabIndex = 17;
-            this.label20.Text = "Today\'s date :";
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.White;
+            this.label24.Location = new System.Drawing.Point(421, 661);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(106, 14);
+            this.label24.TabIndex = 27;
+            this.label24.Text = "Islington Museum";
             // 
-            // timerLbl
+            // pictureBox5
             // 
-            this.timerLbl.AutoSize = true;
-            this.timerLbl.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timerLbl.ForeColor = System.Drawing.Color.White;
-            this.timerLbl.Location = new System.Drawing.Point(187, 218);
-            this.timerLbl.Name = "timerLbl";
-            this.timerLbl.Size = new System.Drawing.Size(0, 21);
-            this.timerLbl.TabIndex = 18;
-            // 
-            // dashCurrentDay
-            // 
-            this.dashCurrentDay.AutoSize = true;
-            this.dashCurrentDay.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dashCurrentDay.ForeColor = System.Drawing.Color.White;
-            this.dashCurrentDay.Location = new System.Drawing.Point(290, 218);
-            this.dashCurrentDay.Name = "dashCurrentDay";
-            this.dashCurrentDay.Size = new System.Drawing.Size(102, 21);
-            this.dashCurrentDay.TabIndex = 19;
-            this.dashCurrentDay.Text = "Wednesday";
-            // 
-            // dashCurrentDate
-            // 
-            this.dashCurrentDate.AutoSize = true;
-            this.dashCurrentDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dashCurrentDate.ForeColor = System.Drawing.Color.White;
-            this.dashCurrentDate.Location = new System.Drawing.Point(396, 218);
-            this.dashCurrentDate.Name = "dashCurrentDate";
-            this.dashCurrentDate.Size = new System.Drawing.Size(114, 21);
-            this.dashCurrentDate.TabIndex = 20;
-            this.dashCurrentDate.Text = "Current Time:";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(386, 218);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(14, 21);
-            this.label21.TabIndex = 21;
-            this.label21.Text = ",";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(67, 265);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(123, 21);
-            this.label22.TabIndex = 22;
-            this.label22.Text = "Visitors Count :";
-            // 
-            // visitorsCountLbl
-            // 
-            this.visitorsCountLbl.AutoSize = true;
-            this.visitorsCountLbl.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.visitorsCountLbl.ForeColor = System.Drawing.Color.White;
-            this.visitorsCountLbl.Location = new System.Drawing.Point(192, 265);
-            this.visitorsCountLbl.Name = "visitorsCountLbl";
-            this.visitorsCountLbl.Size = new System.Drawing.Size(119, 21);
-            this.visitorsCountLbl.TabIndex = 23;
-            this.visitorsCountLbl.Text = "Visitors Count:";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.White;
-            this.label23.Location = new System.Drawing.Point(66, 316);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(235, 21);
-            this.label23.TabIndex = 24;
-            this.label23.Text = "Visitors currently checked in : \r\n";
-            // 
-            // dashCheckedIN
-            // 
-            this.dashCheckedIN.AutoSize = true;
-            this.dashCheckedIN.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dashCheckedIN.ForeColor = System.Drawing.Color.White;
-            this.dashCheckedIN.Location = new System.Drawing.Point(307, 316);
-            this.dashCheckedIN.Name = "dashCheckedIN";
-            this.dashCheckedIN.Size = new System.Drawing.Size(0, 21);
-            this.dashCheckedIN.TabIndex = 26;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(406, 659);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(17, 17);
+            this.pictureBox5.TabIndex = 28;
+            this.pictureBox5.TabStop = false;
             // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
-            this.ClientSize = new System.Drawing.Size(966, 668);
-            this.Controls.Add(this.recordPanel);
+            this.ClientSize = new System.Drawing.Size(966, 680);
+            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.label24);
             this.Controls.Add(this.dashboardPanel);
             this.Controls.Add(this.registerPanel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.recordPanel);
             this.DoubleBuffered = true;
             this.Name = "Dashboard";
             this.Text = "Dashboard";
@@ -985,6 +1065,7 @@
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -999,10 +1080,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.recordPanel.ResumeLayout(false);
             this.recordPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.dashboardPanel.ResumeLayout(false);
             this.dashboardPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1089,5 +1170,9 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label dashCheckedIN;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Button srchBtn;
+        private System.Windows.Forms.TextBox searchBox;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }
