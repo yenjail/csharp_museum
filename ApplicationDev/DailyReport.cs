@@ -37,6 +37,8 @@ namespace ApplicationDev
 
                 string vals = s.ToString();
                 string[] n = vals.Split(',');
+                this.dataGridViewAllVisitor.Rows.Add(n[0], n[1], n[2], DateTime.Parse(n[3]).ToShortDateString(), n[4], n[5], n[6]);
+
                 cards.Add(n[0]);
             }
 
@@ -162,6 +164,8 @@ namespace ApplicationDev
             Console.WriteLine("Hola: "+ dateTimePicker1.Value.ToShortDateString());
             this.dataGridView1.Rows.Clear();
             this.dataGridView1.Refresh();
+            this.dataGridViewAllVisitor.Rows.Clear();
+            this.dataGridViewAllVisitor.Refresh();
 
             List<string> ls = checkin();
             int visitorsCount = 0;
@@ -180,6 +184,7 @@ namespace ApplicationDev
 
                 string vals = s.ToString();
                 string[] n = vals.Split(',');
+                this.dataGridViewAllVisitor.Rows.Add(n[0],n[1], n[2], DateTime.Parse(n[3]).ToShortDateString(), n[4], n[5],n[6]);
                 cards.Add(n[0]);
             }
 

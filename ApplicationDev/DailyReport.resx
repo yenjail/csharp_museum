@@ -123,4 +123,40 @@
   <metadata name="timeSpent.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="cardNumber.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="name.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="day.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="date.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="inTime.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="outTime.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="totalTime.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAB3RJ
+        TUUH4wEaEC4YWo1vzQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFlSURBVDhP
+        dZK7LkRBGIBXQSHRSESh0lpewHoEtU6D3eVBlLvWiojaW7g0G6yEQrIoCa0Ojevxfef8x3X3S75k/svM
+        mZkzhb8kSTKJDbzAp9Cxuclo+w/FAdzEd+zFG27gQEzLMIEHmHOEFSyFjo8xZx+/FyHwy/KMi5H+B7Wl
+        6JFmnvTMbk0WIjeIq3iOZ+j5R6JWRnFO0YRFOYyGIbxKM0lyiafovdzjaPS0UeoGNkkliuv4gfPGwnga
+        lyM0XkbpGDxk46QUxRtsp509oD7jBHjotsAtttLOHlD/tUB+hGoUt9Ezz6bdwHgK5yI0XkFJj7CWjZOj
+        KA6ju/AeWriLL+hOx7APT1BqTihi/huXfiyyhXd4jTs4HjUflThnwpxJn6f4SMpp8g/k/XI1eqQRpbTo
+        U/Z55vif/VVelnrmfNuyh/0xPYOEizQxP043XtGH93vyTyh6J3Xs4GPouIbZmb8oFD4BM6CQ8Autj+EA
+        AAAASUVORK5CYII=
+</value>
+  </data>
 </root>

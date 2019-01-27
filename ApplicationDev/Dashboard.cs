@@ -333,13 +333,13 @@ namespace ApplicationDev
 
                     Visitor visitor = new Visitor();
                     visitor.card_number = regCardNumber.Text;
-                    visitor.first_name = firstNameTxt.Text;
-                    visitor.last_name = last_nameTxt.Text;
-                    visitor.gender = genderTxt.Text;
-                    visitor.address = addressText.Text;
-                    visitor.contact = contactTxt.Text;
-                    visitor.email = emailTxt.Text;
-                    visitor.occupation = occupationTxt.Text;
+                    visitor.first_name = firstNameTxt.Text.Trim();
+                    visitor.last_name = last_nameTxt.Text.Trim();
+                    visitor.gender = genderTxt.Text.Trim();
+                    visitor.address = addressText.Text.Trim();
+                    visitor.contact = contactTxt.Text.Trim();
+                    visitor.email = emailTxt.Text.Trim();
+                    visitor.occupation = occupationTxt.Text.Trim();
 
                     ls.Add(visitor);
                     string path = "../../../desm.csv";
@@ -352,7 +352,7 @@ namespace ApplicationDev
                     {
 
                         //Console.WriteLine(i.card_number + i.first_name);
-                        writer.WriteLine(regCardNumber.Text + "," + firstNameTxt.Text + "," + last_nameTxt.Text + "," + addressText.Text + "," + contactTxt.Text + "," + genderTxt.Text + "," + emailTxt.Text + "," + occupationTxt.Text);
+                        writer.WriteLine(regCardNumber.Text.Trim() + "," + firstNameTxt.Text.Trim() + "," + last_nameTxt.Text.Trim() + "," + addressText.Text.Trim() + "," + contactTxt.Text.Trim() + "," + genderTxt.Text.Trim() + "," + emailTxt.Text.Trim() + "," + occupationTxt.Text.Trim());
 
                         regCardNumber.Text = "";
                         firstNameTxt.Text = "";
@@ -937,6 +937,118 @@ namespace ApplicationDev
             }
 
 
+        }
+
+        private void importBtn_Click(object sender, EventArgs e)
+        {
+            importDialog.ShowDialog();
+            importText.Text = importDialog.FileName;
+            if (importText.Text!="") {
+                uploadBtn.Enabled = true;
+            }
+            
+        }
+
+
+        private void ImportBind(string filepath) {
+
+            List<string> impData = new List<string>();
+            using (StreamReader sr = new StreamReader(filepath))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {                  
+                    impData.Add(line);
+                }
+            }
+            foreach (string s in impData) {
+                string[] n = s.Split(',');
+                //------------visitor add
+
+                Visitor existinVisitor = ls.Where(x => x.card_number == n[0].ToString()).FirstOrDefault();
+                if (existinVisitor != null && existinVisitor.card_number == n[0].ToString())
+                {
+                    
+                }
+                else
+                {
+                    Visitor visitor = new Visitor();
+                    visitor.card_number = n[0].ToString();
+                    visitor.first_name = n[1].ToString();
+                    visitor.last_name = n[2].ToString();
+                    visitor.gender = n[3].ToString();
+                    visitor.address = n[4].ToString();
+                    visitor.contact = n[5].ToString();
+                    visitor.email = n[6].ToString();
+                    visitor.occupation = n[7].ToString();
+                    ls.Add(visitor);
+                    string pathVisitor = "../../../desm.csv";
+                    if (!File.Exists(pathVisitor))
+                    {
+                        File.Create(pathVisitor);
+                    }
+                    using (StreamWriter writer = new StreamWriter(pathVisitor, append: true))
+                    {
+
+                        //Console.WriteLine(i.card_number + i.first_name);
+                        writer.WriteLine(n[0] + "," + n[1] + "," + n[2] + "," + n[3] + "," + n[4] + "," + n[5] + "," + n[6] + "," + n[7]);
+                    }
+
+
+
+                }
+                    //-----------checins
+                    string path = "../../../checkins.csv";
+
+                    if (!File.Exists(path))
+                    {
+                        File.Create(path);
+
+                    }
+
+                    using (StreamWriter writer = new StreamWriter(path, append: true))
+                    {
+
+                        writer.WriteLine(n[0] + "," + n[1] + " " + n[2] + "," + n[8] + "," + n[9] + "," + n[10] + "," + n[11] + "," + n[12]);
+
+                    }
+                    Console.WriteLine("Each lines Visit: " + n[0] + n[1] + n[2] + n[3] + n[4] + n[5] + n[6] + n[7]);
+                    Console.WriteLine("Eachlines Checkin " + n[0] + n[1] + n[2] + n[8] + n[9] + n[10] + n[11] + n[12]);
+
+                
+            }
+
+            var visit = from date in impData
+
+                        where date.Contains(DateTime.Now.Date.ToShortDateString())
+                        select date;
+
+
+            List<string> cards = new List<string>();
+            foreach (string s in visit)
+            {
+                //Console.WriteLine("Uniques: " + s);
+
+                string vals = s.ToString();
+                string[] n = vals.Split(',');
+                //Console.WriteLine("Import dtas: "+ n[0], n[1], n[2],n[3], n[4], n[5], n[6]);
+
+
+                dt.Rows.Add(n[0], n[1]+" "+ n[2], n[8], DateTime.Parse(n[9]).ToShortDateString(), n[10], n[11],n[12]);
+               // n[0] + "," + n[1] + " " + n[2] + "," + n[8] + "," + n[9] + "," + n[10] + "," + n[11] + "," + n[12]
+
+            }
+            this.dataGridView1.DataSource = dt;
+            
+
+
+        }
+
+        private void uploadBtn_Click(object sender, EventArgs e)
+        {
+            ImportBind(importText.Text);
+            importText.Clear();
+            uploadBtn.Enabled = false;
         }
 
       

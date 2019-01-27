@@ -30,11 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dailyMEnu = new System.Windows.Forms.ToolStripMenuItem();
             this.weeklyMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.headerLabel = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -85,6 +86,10 @@
             this.label10 = new System.Windows.Forms.Label();
             this.nmField = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.uploadBtn = new System.Windows.Forms.Button();
+            this.importBtn = new System.Windows.Forms.Button();
+            this.importText = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.checkChkIn = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
@@ -98,7 +103,6 @@
             this.outTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.checkOut = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.recordPanel = new System.Windows.Forms.Panel();
             this.dashboardPanel = new System.Windows.Forms.Panel();
             this.dashCheckedIN = new System.Windows.Forms.Label();
@@ -115,7 +119,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label24 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importDialog = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -124,9 +128,9 @@
             this.registerPanel.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.recordPanel.SuspendLayout();
             this.dashboardPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -161,16 +165,24 @@
             // dailyMEnu
             // 
             this.dailyMEnu.Name = "dailyMEnu";
-            this.dailyMEnu.Size = new System.Drawing.Size(180, 24);
+            this.dailyMEnu.Size = new System.Drawing.Size(134, 24);
             this.dailyMEnu.Text = "Daily";
             this.dailyMEnu.Click += new System.EventHandler(this.dailyMEnu_Click);
             // 
             // weeklyMenu
             // 
             this.weeklyMenu.Name = "weeklyMenu";
-            this.weeklyMenu.Size = new System.Drawing.Size(180, 24);
+            this.weeklyMenu.Size = new System.Drawing.Size(134, 24);
             this.weeklyMenu.Text = "Weekly";
             this.weeklyMenu.Click += new System.EventHandler(this.weeklyMenu_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.helpToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(49, 23);
+            this.helpToolStripMenuItem.Text = "Help";
             // 
             // headerLabel
             // 
@@ -524,9 +536,9 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.groupBox2);
+            this.groupBox3.Controls.Add(this.groupBox5);
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Controls.Add(this.pictureBox2);
             this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.Black;
             this.groupBox3.Location = new System.Drawing.Point(28, 11);
@@ -722,6 +734,64 @@
             this.label11.TabIndex = 2;
             this.label11.Text = "Card Number :";
             // 
+            // groupBox5
+            // 
+            this.groupBox5.BackColor = System.Drawing.Color.DarkCyan;
+            this.groupBox5.Controls.Add(this.uploadBtn);
+            this.groupBox5.Controls.Add(this.importBtn);
+            this.groupBox5.Controls.Add(this.importText);
+            this.groupBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.ForeColor = System.Drawing.Color.White;
+            this.groupBox5.Location = new System.Drawing.Point(613, 152);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(245, 96);
+            this.groupBox5.TabIndex = 26;
+            this.groupBox5.TabStop = false;
+            // 
+            // uploadBtn
+            // 
+            this.uploadBtn.BackColor = System.Drawing.Color.DarkCyan;
+            this.uploadBtn.Enabled = false;
+            this.uploadBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uploadBtn.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uploadBtn.ForeColor = System.Drawing.Color.White;
+            this.uploadBtn.Image = ((System.Drawing.Image)(resources.GetObject("uploadBtn.Image")));
+            this.uploadBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uploadBtn.Location = new System.Drawing.Point(130, 14);
+            this.uploadBtn.Name = "uploadBtn";
+            this.uploadBtn.Size = new System.Drawing.Size(92, 32);
+            this.uploadBtn.TabIndex = 27;
+            this.uploadBtn.Text = "Upload";
+            this.uploadBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.uploadBtn.UseVisualStyleBackColor = false;
+            this.uploadBtn.Click += new System.EventHandler(this.uploadBtn_Click);
+            // 
+            // importBtn
+            // 
+            this.importBtn.BackColor = System.Drawing.Color.DarkCyan;
+            this.importBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.importBtn.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.importBtn.ForeColor = System.Drawing.Color.White;
+            this.importBtn.Image = ((System.Drawing.Image)(resources.GetObject("importBtn.Image")));
+            this.importBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.importBtn.Location = new System.Drawing.Point(24, 14);
+            this.importBtn.Name = "importBtn";
+            this.importBtn.Size = new System.Drawing.Size(90, 32);
+            this.importBtn.TabIndex = 26;
+            this.importBtn.Text = "Import";
+            this.importBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.importBtn.UseVisualStyleBackColor = false;
+            this.importBtn.Click += new System.EventHandler(this.importBtn_Click);
+            // 
+            // importText
+            // 
+            this.importText.Enabled = false;
+            this.importText.Location = new System.Drawing.Point(12, 57);
+            this.importText.Name = "importText";
+            this.importText.Size = new System.Drawing.Size(223, 23);
+            this.importText.TabIndex = 25;
+            // 
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.SystemColors.MenuHighlight;
@@ -729,9 +799,9 @@
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.checkCheckInTxt);
             this.groupBox4.ForeColor = System.Drawing.Color.White;
-            this.groupBox4.Location = new System.Drawing.Point(639, 47);
+            this.groupBox4.Location = new System.Drawing.Point(613, 26);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(181, 147);
+            this.groupBox4.Size = new System.Drawing.Size(245, 109);
             this.groupBox4.TabIndex = 10;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Check Out";
@@ -744,9 +814,9 @@
             this.checkChkIn.ForeColor = System.Drawing.Color.White;
             this.checkChkIn.Image = ((System.Drawing.Image)(resources.GetObject("checkChkIn.Image")));
             this.checkChkIn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.checkChkIn.Location = new System.Drawing.Point(39, 81);
+            this.checkChkIn.Location = new System.Drawing.Point(70, 65);
             this.checkChkIn.Name = "checkChkIn";
-            this.checkChkIn.Size = new System.Drawing.Size(107, 47);
+            this.checkChkIn.Size = new System.Drawing.Size(107, 40);
             this.checkChkIn.TabIndex = 9;
             this.checkChkIn.Text = "Check Out";
             this.checkChkIn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -757,7 +827,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(44, 28);
+            this.label12.Location = new System.Drawing.Point(68, 22);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(90, 17);
             this.label12.TabIndex = 11;
@@ -765,9 +835,9 @@
             // 
             // checkCheckInTxt
             // 
-            this.checkCheckInTxt.Location = new System.Drawing.Point(38, 53);
+            this.checkCheckInTxt.Location = new System.Drawing.Point(45, 40);
             this.checkCheckInTxt.Name = "checkCheckInTxt";
-            this.checkCheckInTxt.Size = new System.Drawing.Size(106, 22);
+            this.checkCheckInTxt.Size = new System.Drawing.Size(153, 22);
             this.checkCheckInTxt.TabIndex = 10;
             // 
             // dataGridView1
@@ -783,14 +853,14 @@
             this.outTime,
             this.totalTime,
             this.checkOut});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dataGridView1.Location = new System.Drawing.Point(6, 257);
             this.dataGridView1.Name = "dataGridView1";
@@ -863,16 +933,6 @@
             this.checkOut.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.checkOut.Text = "Check Out";
             this.checkOut.UseColumnTextForButtonValue = true;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(621, 63);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(216, 234);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 15;
-            this.pictureBox2.TabStop = false;
             // 
             // recordPanel
             // 
@@ -1050,13 +1110,9 @@
             this.pictureBox5.TabIndex = 28;
             this.pictureBox5.TabStop = false;
             // 
-            // helpToolStripMenuItem
+            // importDialog
             // 
-            this.helpToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.helpToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(49, 23);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.importDialog.FileName = "openFileDialog1";
             // 
             // Dashboard
             // 
@@ -1064,13 +1120,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.ClientSize = new System.Drawing.Size(966, 680);
-            this.Controls.Add(this.recordPanel);
+            this.Controls.Add(this.registerPanel);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.dashboardPanel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.registerPanel);
+            this.Controls.Add(this.recordPanel);
             this.DoubleBuffered = true;
             this.Name = "Dashboard";
             this.Text = "Dashboard";
@@ -1088,10 +1144,11 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.recordPanel.ResumeLayout(false);
             this.recordPanel.PerformLayout();
             this.dashboardPanel.ResumeLayout(false);
@@ -1167,7 +1224,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn outTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalTime;
         private System.Windows.Forms.DataGridViewButtonColumn checkOut;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel recordPanel;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel barShow;
@@ -1189,5 +1245,10 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button importBtn;
+        private System.Windows.Forms.TextBox importText;
+        private System.Windows.Forms.OpenFileDialog importDialog;
+        private System.Windows.Forms.Button uploadBtn;
     }
 }
