@@ -30,7 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dailyMEnu = new System.Windows.Forms.ToolStripMenuItem();
@@ -120,6 +124,15 @@
             this.label24 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.importDialog = new System.Windows.Forms.OpenFileDialog();
+            this.chartBtn = new System.Windows.Forms.Button();
+            this.chartPanel = new System.Windows.Forms.Panel();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label25 = new System.Windows.Forms.Label();
+            this.weekCombo = new System.Windows.Forms.ComboBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -135,6 +148,9 @@
             this.dashboardPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.chartPanel.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -146,7 +162,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(966, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(1036, 27);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -165,14 +181,14 @@
             // dailyMEnu
             // 
             this.dailyMEnu.Name = "dailyMEnu";
-            this.dailyMEnu.Size = new System.Drawing.Size(134, 24);
+            this.dailyMEnu.Size = new System.Drawing.Size(180, 24);
             this.dailyMEnu.Text = "Daily";
             this.dailyMEnu.Click += new System.EventHandler(this.dailyMEnu_Click);
             // 
             // weeklyMenu
             // 
             this.weeklyMenu.Name = "weeklyMenu";
-            this.weeklyMenu.Size = new System.Drawing.Size(134, 24);
+            this.weeklyMenu.Size = new System.Drawing.Size(180, 24);
             this.weeklyMenu.Text = "Weekly";
             this.weeklyMenu.Click += new System.EventHandler(this.weeklyMenu_Click);
             // 
@@ -238,6 +254,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel1.Controls.Add(this.chartBtn);
             this.panel1.Controls.Add(this.searchBox);
             this.panel1.Controls.Add(this.srchBtn);
             this.panel1.Controls.Add(this.barShow);
@@ -247,7 +264,7 @@
             this.panel1.Controls.Add(this.button1);
             this.panel1.Location = new System.Drawing.Point(0, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(966, 140);
+            this.panel1.Size = new System.Drawing.Size(1037, 140);
             this.panel1.TabIndex = 13;
             // 
             // searchBox
@@ -256,7 +273,7 @@
             this.searchBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.searchBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchBox.ForeColor = System.Drawing.Color.White;
-            this.searchBox.Location = new System.Drawing.Point(737, 18);
+            this.searchBox.Location = new System.Drawing.Point(794, 15);
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(95, 22);
             this.searchBox.TabIndex = 28;
@@ -269,7 +286,7 @@
             this.srchBtn.ForeColor = System.Drawing.Color.White;
             this.srchBtn.Image = ((System.Drawing.Image)(resources.GetObject("srchBtn.Image")));
             this.srchBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.srchBtn.Location = new System.Drawing.Point(835, 14);
+            this.srchBtn.Location = new System.Drawing.Point(895, 11);
             this.srchBtn.Name = "srchBtn";
             this.srchBtn.Size = new System.Drawing.Size(130, 29);
             this.srchBtn.TabIndex = 27;
@@ -505,9 +522,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(648, 133);
+            this.pictureBox1.Location = new System.Drawing.Point(656, 144);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(233, 292);
+            this.pictureBox1.Size = new System.Drawing.Size(204, 252);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
@@ -853,14 +870,14 @@
             this.outTime,
             this.totalTime,
             this.checkOut});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dataGridView1.Location = new System.Drawing.Point(6, 257);
             this.dataGridView1.Name = "dataGridView1";
@@ -937,8 +954,8 @@
             // recordPanel
             // 
             this.recordPanel.BackColor = System.Drawing.Color.LightSlateGray;
-            this.recordPanel.Controls.Add(this.groupBox3);
             this.recordPanel.Controls.Add(this.label1);
+            this.recordPanel.Controls.Add(this.groupBox3);
             this.recordPanel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.recordPanel.Location = new System.Drawing.Point(33, 172);
             this.recordPanel.Name = "recordPanel";
@@ -961,7 +978,7 @@
             this.dashboardPanel.Controls.Add(this.label14);
             this.dashboardPanel.Location = new System.Drawing.Point(0, 195);
             this.dashboardPanel.Name = "dashboardPanel";
-            this.dashboardPanel.Size = new System.Drawing.Size(966, 461);
+            this.dashboardPanel.Size = new System.Drawing.Size(950, 461);
             this.dashboardPanel.TabIndex = 14;
             // 
             // dashCheckedIN
@@ -1114,19 +1131,151 @@
             // 
             this.importDialog.FileName = "openFileDialog1";
             // 
+            // chartBtn
+            // 
+            this.chartBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.chartBtn.FlatAppearance.BorderSize = 0;
+            this.chartBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chartBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chartBtn.ForeColor = System.Drawing.Color.White;
+            this.chartBtn.Image = ((System.Drawing.Image)(resources.GetObject("chartBtn.Image")));
+            this.chartBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.chartBtn.Location = new System.Drawing.Point(905, 76);
+            this.chartBtn.Name = "chartBtn";
+            this.chartBtn.Size = new System.Drawing.Size(102, 46);
+            this.chartBtn.TabIndex = 29;
+            this.chartBtn.Text = "Chart";
+            this.chartBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chartBtn.UseVisualStyleBackColor = false;
+            this.chartBtn.Click += new System.EventHandler(this.chartBtn_Click);
+            // 
+            // chartPanel
+            // 
+            this.chartPanel.Controls.Add(this.groupBox6);
+            this.chartPanel.Location = new System.Drawing.Point(70, 208);
+            this.chartPanel.Name = "chartPanel";
+            this.chartPanel.Size = new System.Drawing.Size(937, 379);
+            this.chartPanel.TabIndex = 27;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.chart1);
+            this.groupBox6.Controls.Add(this.button5);
+            this.groupBox6.Controls.Add(this.label25);
+            this.groupBox6.Controls.Add(this.weekCombo);
+            this.groupBox6.Controls.Add(this.label26);
+            this.groupBox6.Controls.Add(this.dateTimePicker1);
+            this.groupBox6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.Location = new System.Drawing.Point(33, 26);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(815, 327);
+            this.groupBox6.TabIndex = 37;
+            this.groupBox6.TabStop = false;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.LightSlateGray;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(44, 90);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(112, 38);
+            this.button5.TabIndex = 33;
+            this.button5.Text = "View Result";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.ForeColor = System.Drawing.Color.White;
+            this.label25.Location = new System.Drawing.Point(113, 34);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(43, 17);
+            this.label25.TabIndex = 35;
+            this.label25.Text = "Week";
+            // 
+            // weekCombo
+            // 
+            this.weekCombo.FormattingEnabled = true;
+            this.weekCombo.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
+            this.weekCombo.Location = new System.Drawing.Point(114, 50);
+            this.weekCombo.Name = "weekCombo";
+            this.weekCombo.Size = new System.Drawing.Size(80, 25);
+            this.weekCombo.TabIndex = 32;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.ForeColor = System.Drawing.Color.White;
+            this.label26.Location = new System.Drawing.Point(15, 34);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(46, 17);
+            this.label26.TabIndex = 34;
+            this.label26.Text = "Month";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "MMMM";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(14, 51);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(93, 22);
+            this.dateTimePicker1.TabIndex = 31;
+            // 
+            // chart1
+            // 
+            this.chart1.BackColor = System.Drawing.Color.LightSlateGray;
+            this.chart1.BorderSkin.PageColor = System.Drawing.Color.LightSlateGray;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(216, 27);
+            this.chart1.Name = "chart1";
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Light;
+            series1.BorderWidth = 3;
+            series1.ChartArea = "ChartArea1";
+            series1.Color = System.Drawing.Color.Blue;
+            series1.Legend = "Legend1";
+            series1.Name = "Total Visitor";
+            series1.ShadowColor = System.Drawing.Color.Black;
+            series2.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            series2.BorderColor = System.Drawing.Color.Red;
+            series2.BorderWidth = 3;
+            series2.ChartArea = "ChartArea1";
+            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            series2.Legend = "Legend1";
+            series2.Name = "Total time";
+            series2.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(579, 289);
+            this.chart1.TabIndex = 38;
+            this.chart1.Text = "chart1";
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
-            this.ClientSize = new System.Drawing.Size(966, 680);
-            this.Controls.Add(this.registerPanel);
+            this.ClientSize = new System.Drawing.Size(1036, 680);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.label24);
-            this.Controls.Add(this.dashboardPanel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.dashboardPanel);
             this.Controls.Add(this.recordPanel);
+            this.Controls.Add(this.chartPanel);
+            this.Controls.Add(this.registerPanel);
             this.DoubleBuffered = true;
             this.Name = "Dashboard";
             this.Text = "Dashboard";
@@ -1155,6 +1304,10 @@
             this.dashboardPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.chartPanel.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1250,5 +1403,14 @@
         private System.Windows.Forms.TextBox importText;
         private System.Windows.Forms.OpenFileDialog importDialog;
         private System.Windows.Forms.Button uploadBtn;
+        private System.Windows.Forms.Button chartBtn;
+        private System.Windows.Forms.Panel chartPanel;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.ComboBox weekCombo;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }

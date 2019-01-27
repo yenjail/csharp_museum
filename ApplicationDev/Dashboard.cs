@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -94,7 +95,8 @@ namespace ApplicationDev
 
 
             InitializeComponent();
-
+            barShow.Visible = false;
+            
             dashCurrentDay.Text = DateTime.Now.DayOfWeek.ToString();
             dashCurrentDate.Text = DateTime.Now.Date.ToShortDateString();
 
@@ -277,10 +279,12 @@ namespace ApplicationDev
             
 
             this.recordPanel.Visible = false;
+            barShow.Visible = true;
 
             this.barShow.Width = button1.Width;
             this.barShow.Location = new System.Drawing.Point(519, 125);
             this.dashboardPanel.Visible = false;
+            this.chartPanel.Visible = false;
             //this.registerBar.Width = 119;
          
             //registerBar.Top = button1.Top;
@@ -292,12 +296,13 @@ namespace ApplicationDev
         {
             this.recordPanel.Visible = true;
 
-
+            barShow.Visible = true;
             this.barShow.Location = new System.Drawing.Point(699, 125);
             this.barShow.Width = button2.Width;
 
             this.registerPanel.Visible = false;
             this.dashboardPanel.Visible = false;
+            this.chartPanel.Visible = false;
 
             //Form1 frm = new Form1();
 
@@ -846,9 +851,14 @@ namespace ApplicationDev
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
+            barShow.Visible = true;
+
             barShow.Width = headerLabel.Width + 50;
             this.barShow.Location = new System.Drawing.Point(0,125);
             this.dashboardPanel.Visible = true;
+            this.recordPanel.Visible = false;
+            this.registerPanel.Visible = false;
+            this.chartPanel.Visible = false;
 
         }
 
@@ -892,15 +902,17 @@ namespace ApplicationDev
 
 
 
-            
 
 
 
+            barShow.Visible = true;
             barShow.Width = headerLabel.Width+50;
             this.barShow.Location = new System.Drawing.Point(0, 125);
             this.dashboardPanel.Visible = true;
             this.recordPanel.Visible = false;
             this.registerPanel.Visible = false;
+          
+            this.chartPanel.Visible = false;
 
         }
 
@@ -951,52 +963,55 @@ namespace ApplicationDev
 
 
         private void ImportBind(string filepath) {
-
-            List<string> impData = new List<string>();
-            using (StreamReader sr = new StreamReader(filepath))
+            try
             {
-                string line;
-                while ((line = sr.ReadLine()) != null)
-                {                  
-                    impData.Add(line);
-                }
-            }
-            foreach (string s in impData) {
-                string[] n = s.Split(',');
-                //------------visitor add
 
-                Visitor existinVisitor = ls.Where(x => x.card_number == n[0].ToString()).FirstOrDefault();
-                if (existinVisitor != null && existinVisitor.card_number == n[0].ToString())
+                List<string> impData = new List<string>();
+                using (StreamReader sr = new StreamReader(filepath))
                 {
-                    
-                }
-                else
-                {
-                    Visitor visitor = new Visitor();
-                    visitor.card_number = n[0].ToString();
-                    visitor.first_name = n[1].ToString();
-                    visitor.last_name = n[2].ToString();
-                    visitor.gender = n[3].ToString();
-                    visitor.address = n[4].ToString();
-                    visitor.contact = n[5].ToString();
-                    visitor.email = n[6].ToString();
-                    visitor.occupation = n[7].ToString();
-                    ls.Add(visitor);
-                    string pathVisitor = "../../../desm.csv";
-                    if (!File.Exists(pathVisitor))
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
                     {
-                        File.Create(pathVisitor);
+                        impData.Add(line);
                     }
-                    using (StreamWriter writer = new StreamWriter(pathVisitor, append: true))
+                }
+                foreach (string s in impData)
+                {
+                    string[] n = s.Split(',');
+                    //------------visitor add
+
+                    Visitor existinVisitor = ls.Where(x => x.card_number == n[0].ToString()).FirstOrDefault();
+                    if (existinVisitor != null && existinVisitor.card_number == n[0].ToString())
                     {
 
-                        //Console.WriteLine(i.card_number + i.first_name);
-                        writer.WriteLine(n[0] + "," + n[1] + "," + n[2] + "," + n[3] + "," + n[4] + "," + n[5] + "," + n[6] + "," + n[7]);
                     }
+                    else
+                    {
+                        Visitor visitor = new Visitor();
+                        visitor.card_number = n[0].ToString();
+                        visitor.first_name = n[1].ToString();
+                        visitor.last_name = n[2].ToString();
+                        visitor.gender = n[3].ToString();
+                        visitor.address = n[4].ToString();
+                        visitor.contact = n[5].ToString();
+                        visitor.email = n[6].ToString();
+                        visitor.occupation = n[7].ToString();
+                        ls.Add(visitor);
+                        string pathVisitor = "../../../desm.csv";
+                        if (!File.Exists(pathVisitor))
+                        {
+                            File.Create(pathVisitor);
+                        }
+                        using (StreamWriter writer = new StreamWriter(pathVisitor, append: true))
+                        {
+
+                            //Console.WriteLine(i.card_number + i.first_name);
+                            writer.WriteLine(n[0] + "," + n[1] + "," + n[2] + "," + n[3] + "," + n[4] + "," + n[5] + "," + n[6] + "," + n[7]);
+                        }
 
 
 
-                }
+                    }
                     //-----------checins
                     string path = "../../../checkins.csv";
 
@@ -1015,30 +1030,37 @@ namespace ApplicationDev
                     Console.WriteLine("Each lines Visit: " + n[0] + n[1] + n[2] + n[3] + n[4] + n[5] + n[6] + n[7]);
                     Console.WriteLine("Eachlines Checkin " + n[0] + n[1] + n[2] + n[8] + n[9] + n[10] + n[11] + n[12]);
 
-                
+
+                }
+
+                var visit = from date in impData
+
+                            where date.Contains(DateTime.Now.Date.ToShortDateString())
+                            select date;
+
+
+                List<string> cards = new List<string>();
+                foreach (string s in visit)
+                {
+                    //Console.WriteLine("Uniques: " + s);
+
+                    string vals = s.ToString();
+                    string[] n = vals.Split(',');
+                    //Console.WriteLine("Import dtas: "+ n[0], n[1], n[2],n[3], n[4], n[5], n[6]);
+
+
+                    dt.Rows.Add(n[0], n[1] + " " + n[2], n[8], DateTime.Parse(n[9]).ToShortDateString(), n[10], n[11], n[12]);
+                    // n[0] + "," + n[1] + " " + n[2] + "," + n[8] + "," + n[9] + "," + n[10] + "," + n[11] + "," + n[12]
+
+                }
+                this.dataGridView1.DataSource = dt;
+
+                MessageBox.Show("Imported.","Success!");
+
             }
-
-            var visit = from date in impData
-
-                        where date.Contains(DateTime.Now.Date.ToShortDateString())
-                        select date;
-
-
-            List<string> cards = new List<string>();
-            foreach (string s in visit)
-            {
-                //Console.WriteLine("Uniques: " + s);
-
-                string vals = s.ToString();
-                string[] n = vals.Split(',');
-                //Console.WriteLine("Import dtas: "+ n[0], n[1], n[2],n[3], n[4], n[5], n[6]);
-
-
-                dt.Rows.Add(n[0], n[1]+" "+ n[2], n[8], DateTime.Parse(n[9]).ToShortDateString(), n[10], n[11],n[12]);
-               // n[0] + "," + n[1] + " " + n[2] + "," + n[8] + "," + n[9] + "," + n[10] + "," + n[11] + "," + n[12]
-
+            catch (Exception e2) {
+                Console.WriteLine(e2.Message);
             }
-            this.dataGridView1.DataSource = dt;
             
 
 
@@ -1051,6 +1073,118 @@ namespace ApplicationDev
             uploadBtn.Enabled = false;
         }
 
-      
+        private void chartBtn_Click(object sender, EventArgs e)
+        {
+            this.chartPanel.Visible = true;
+            
+            barShow.Visible = true;
+            
+            this.recordPanel.Visible = false;
+            this.registerPanel.Visible = false;
+            this.dashboardPanel.Visible = false;
+            this.barShow.Location = new System.Drawing.Point(905, 125);
+            this.barShow.Width = chartBtn.Width;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            CultureInfo myCI = new CultureInfo("en-US");
+            Calendar myCal = myCI.Calendar;
+
+            // Gets the DTFI properties required by GetWeekOfYear.
+            CalendarWeekRule myCWR = myCI.DateTimeFormat.CalendarWeekRule;
+            DayOfWeek myFirstDOW = myCI.DateTimeFormat.FirstDayOfWeek;
+            // Console.WriteLine("Cuurent week: " + myCal.GetWeekOfYear(DateTime.Parse("1/1/2019"), myCWR, myFirstDOW));
+
+            this.chart1.Series["Total Visitor"].Points.Clear();
+            this.chart1.Series["Total time"].Points.Clear();
+
+           
+            if (weekCombo.Text == "1" || weekCombo.Text == "2" || weekCombo.Text == "3" || weekCombo.Text == "4" || weekCombo.Text == "5")
+            {
+
+                List<string> checkWeek = readCheckIns();
+                string[] days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" };
+                for (int i = 0; i < days.Length; i++)
+                {
+                    int visitors = 0;
+                    int totalMin = 0;
+                    var visit2 = from date in checkWeek
+                                 where date.Contains(days[i])
+                                 select date;
+
+                    List<string> cards1 = new List<string>();
+                    foreach (string s in visit2)
+                    {
+
+
+                        string vals = s.ToString();
+                        string[] n = vals.Split(',');
+
+                       
+                        int wno = myCal.GetWeekOfYear(DateTime.Parse(n[3]), myCWR, myFirstDOW);
+                       
+                        if (DateTime.Parse(n[3]).Month.ToString() == DateTime.Parse(dateTimePicker1.Value.ToString()).Month.ToString() && myCal.GetWeekOfYear(DateTime.Parse(n[3]), myCWR, myFirstDOW) == Convert.ToInt32(weekCombo.Text))
+                        {
+                            cards1.Add(n[0]);
+                        }
+                    }
+
+                    var uniq1 = cards1.Distinct();
+                    foreach (var u in uniq1)
+                    {
+                        visitors = visitors + 1;
+
+                    }
+
+
+                    //minutes
+                    foreach (string t in checkWeek)
+                    {
+
+                        //Console.WriteLine(i);
+                        var values = t.Split(',').ToList();
+                        // Console.WriteLine("Valuess  "+dateTimePicker1.Text);
+                        //myCal.GetWeekOfYear(DateTime.Parse("values[3]"), myCWR, myFirstDOW)
+                        if (DateTime.Parse(values[3]).Month.ToString() == DateTime.Parse(dateTimePicker1.Value.ToString()).Month.ToString() && myCal.GetWeekOfYear(DateTime.Parse(values[3]), myCWR, myFirstDOW) == Convert.ToInt32(weekCombo.Text))
+                        {
+
+
+                            var qTotalTime = from date in values
+                                             where date.Contains(days[i])
+                                             select values[6];
+
+
+
+                            foreach (var name in qTotalTime)
+                            {
+
+                                if (name != null && name != "")
+                                {
+                                    totalMin = Int32.Parse(name) + totalMin;
+                                }
+
+
+                            }
+                        }
+
+
+
+
+
+                    }
+
+                   
+                    this.chart1.Series["Total Visitor"].Points.AddXY(days[i], visitors.ToString());
+                    this.chart1.Series["Total time"].Points.AddXY(days[i], totalMin.ToString());
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Pick a week.", "Error!");
+            }
+        
+    }
     }
 }
