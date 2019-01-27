@@ -18,7 +18,7 @@ namespace ApplicationDev
         public DailyReport()
         {
             InitializeComponent();
-            
+            this.MaximizeBox = false;
 
             List<string> ls = checkin();
             int visitorsCount = 0;

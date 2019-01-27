@@ -16,6 +16,7 @@ namespace ApplicationDev
         public Search(List<string> infos,String number)
         {
             InitializeComponent();
+            this.MaximizeBox = false;
             DataTable dt = new DataTable();
 
             var visit = from visitor in infos

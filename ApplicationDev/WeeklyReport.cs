@@ -47,6 +47,7 @@ namespace ApplicationDev
         public WeeklyReport()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
             //week-----------------
             // Gets the Calendar instance associated with a CultureInfo.
 

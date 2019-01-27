@@ -70,7 +70,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.registerPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.conField = new System.Windows.Forms.Label();
@@ -541,15 +540,6 @@
             this.registerPanel.TabIndex = 2;
             this.registerPanel.Visible = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(271, 88);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Record";
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.groupBox2);
@@ -560,7 +550,7 @@
             this.groupBox3.ForeColor = System.Drawing.Color.Black;
             this.groupBox3.Location = new System.Drawing.Point(28, 11);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(872, 463);
+            this.groupBox3.Size = new System.Drawing.Size(886, 463);
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Check In";
@@ -879,7 +869,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 257);
+            this.dataGridView1.Location = new System.Drawing.Point(17, 257);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(843, 200);
@@ -954,12 +944,11 @@
             // recordPanel
             // 
             this.recordPanel.BackColor = System.Drawing.Color.LightSlateGray;
-            this.recordPanel.Controls.Add(this.label1);
             this.recordPanel.Controls.Add(this.groupBox3);
             this.recordPanel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recordPanel.Location = new System.Drawing.Point(33, 172);
+            this.recordPanel.Location = new System.Drawing.Point(41, 172);
             this.recordPanel.Name = "recordPanel";
-            this.recordPanel.Size = new System.Drawing.Size(906, 477);
+            this.recordPanel.Size = new System.Drawing.Size(930, 477);
             this.recordPanel.TabIndex = 3;
             this.recordPanel.Visible = false;
             // 
@@ -1112,7 +1101,7 @@
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.White;
-            this.label24.Location = new System.Drawing.Point(421, 661);
+            this.label24.Location = new System.Drawing.Point(477, 659);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(106, 14);
             this.label24.TabIndex = 27;
@@ -1121,7 +1110,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(406, 659);
+            this.pictureBox5.Location = new System.Drawing.Point(462, 657);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(17, 17);
             this.pictureBox5.TabIndex = 28;
@@ -1209,7 +1198,7 @@
             "5"});
             this.weekCombo.Location = new System.Drawing.Point(114, 50);
             this.weekCombo.Name = "weekCombo";
-            this.weekCombo.Size = new System.Drawing.Size(80, 25);
+            this.weekCombo.Size = new System.Drawing.Size(106, 25);
             this.weekCombo.TabIndex = 32;
             // 
             // label26
@@ -1273,9 +1262,9 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.dashboardPanel);
-            this.Controls.Add(this.recordPanel);
-            this.Controls.Add(this.chartPanel);
             this.Controls.Add(this.registerPanel);
+            this.Controls.Add(this.chartPanel);
+            this.Controls.Add(this.recordPanel);
             this.DoubleBuffered = true;
             this.Name = "Dashboard";
             this.Text = "Dashboard";
@@ -1299,7 +1288,6 @@
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.recordPanel.ResumeLayout(false);
-            this.recordPanel.PerformLayout();
             this.dashboardPanel.ResumeLayout(false);
             this.dashboardPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -1344,7 +1332,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel registerPanel;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label conField;

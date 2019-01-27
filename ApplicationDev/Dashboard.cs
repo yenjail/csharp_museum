@@ -95,7 +95,9 @@ namespace ApplicationDev
 
 
             InitializeComponent();
+            this.MaximizeBox = false;
             barShow.Visible = false;
+            weekCombo.Text = "Select Week.";
             
             dashCurrentDay.Text = DateTime.Now.DayOfWeek.ToString();
             dashCurrentDate.Text = DateTime.Now.Date.ToShortDateString();
