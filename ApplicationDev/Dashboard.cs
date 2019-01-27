@@ -321,11 +321,11 @@ namespace ApplicationDev
                 Visitor existinVisitor = ls.Where(x => x.card_number == regCardNumber.Text).FirstOrDefault();
                 if (existinVisitor != null && existinVisitor.card_number == regCardNumber.Text)
                 {
-                    MessageBox.Show("Card Number Already taken.");
+                    MessageBox.Show("Card Number Already taken.","Error!");
                 }
-                else if (regCardNumber.Text.Equals(""))
+                else if (regCardNumber.Text.Equals("") || firstNameTxt.Text.Equals("") || last_nameTxt.Text.Equals("")  || occupationTxt.Text.Equals("") || addressText.Text.Equals("") || genderTxt.Text.Equals("")  )
                 {
-                    MessageBox.Show("Dont leave empty fields.");
+                    MessageBox.Show("Dont leave empty fields.","Error!");
 
                 }
                 else
@@ -361,7 +361,8 @@ namespace ApplicationDev
                         last_nameTxt.Text = "";
                         emailTxt.Text = "";
                         occupationTxt.Text = "";
-
+                        genderTxt.Text = "";
+                        MessageBox.Show("Visitor details added.","Success!");
 
 
                     }
@@ -628,7 +629,7 @@ namespace ApplicationDev
 
 
                     }
-
+                    MessageBox.Show("Checked IN.","Success!");
                     nmField.Text = "";
                     cardField.Text = "";
                     ocField.Text = "";
@@ -763,7 +764,7 @@ namespace ApplicationDev
                 //cardField.Text = row.ToString();
                 DataGridViewRow chkD = dataGridView1.Rows[rowVal];
 
-                if (chkD.Cells[6].Value.ToString() == "") { 
+                if (chkD.Cells[6].Value.ToString() == "" && chkD.Cells[0].Value.ToString()!="") { 
                 chkD.Cells[6].Value = DateTime.Now.ToLongTimeString();
                 Console.WriteLine("Cel data: " + chkD.Cells[6].Value);
                 chkData[5] = chkD.Cells[6].Value.ToString();
