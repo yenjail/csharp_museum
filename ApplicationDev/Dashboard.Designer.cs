@@ -44,6 +44,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chartBtn = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.srchBtn = new System.Windows.Forms.Button();
             this.barShow = new System.Windows.Forms.Panel();
@@ -123,15 +124,14 @@
             this.label24 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.importDialog = new System.Windows.Forms.OpenFileDialog();
-            this.chartBtn = new System.Windows.Forms.Button();
             this.chartPanel = new System.Windows.Forms.Panel();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button5 = new System.Windows.Forms.Button();
             this.label25 = new System.Windows.Forms.Label();
             this.weekCombo = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -265,6 +265,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1037, 140);
             this.panel1.TabIndex = 13;
+            // 
+            // chartBtn
+            // 
+            this.chartBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.chartBtn.FlatAppearance.BorderSize = 0;
+            this.chartBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chartBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chartBtn.ForeColor = System.Drawing.Color.White;
+            this.chartBtn.Image = ((System.Drawing.Image)(resources.GetObject("chartBtn.Image")));
+            this.chartBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.chartBtn.Location = new System.Drawing.Point(905, 76);
+            this.chartBtn.Name = "chartBtn";
+            this.chartBtn.Size = new System.Drawing.Size(102, 46);
+            this.chartBtn.TabIndex = 29;
+            this.chartBtn.Text = "Chart";
+            this.chartBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chartBtn.UseVisualStyleBackColor = false;
+            this.chartBtn.Click += new System.EventHandler(this.chartBtn_Click);
             // 
             // searchBox
             // 
@@ -850,6 +868,8 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.LightSlateGray;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cardNumber,
@@ -1120,24 +1140,6 @@
             // 
             this.importDialog.FileName = "openFileDialog1";
             // 
-            // chartBtn
-            // 
-            this.chartBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.chartBtn.FlatAppearance.BorderSize = 0;
-            this.chartBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chartBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chartBtn.ForeColor = System.Drawing.Color.White;
-            this.chartBtn.Image = ((System.Drawing.Image)(resources.GetObject("chartBtn.Image")));
-            this.chartBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.chartBtn.Location = new System.Drawing.Point(905, 76);
-            this.chartBtn.Name = "chartBtn";
-            this.chartBtn.Size = new System.Drawing.Size(102, 46);
-            this.chartBtn.TabIndex = 29;
-            this.chartBtn.Text = "Chart";
-            this.chartBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.chartBtn.UseVisualStyleBackColor = false;
-            this.chartBtn.Click += new System.EventHandler(this.chartBtn_Click);
-            // 
             // chartPanel
             // 
             this.chartPanel.Controls.Add(this.groupBox6);
@@ -1160,6 +1162,37 @@
             this.groupBox6.Size = new System.Drawing.Size(815, 327);
             this.groupBox6.TabIndex = 37;
             this.groupBox6.TabStop = false;
+            // 
+            // chart1
+            // 
+            this.chart1.BackColor = System.Drawing.Color.LightSlateGray;
+            this.chart1.BorderSkin.PageColor = System.Drawing.Color.LightSlateGray;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(216, 27);
+            this.chart1.Name = "chart1";
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Light;
+            series1.BorderWidth = 3;
+            series1.ChartArea = "ChartArea1";
+            series1.Color = System.Drawing.Color.Blue;
+            series1.Legend = "Legend1";
+            series1.Name = "Total Visitor";
+            series1.ShadowColor = System.Drawing.Color.Black;
+            series2.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            series2.BorderColor = System.Drawing.Color.Red;
+            series2.BorderWidth = 3;
+            series2.ChartArea = "ChartArea1";
+            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            series2.Legend = "Legend1";
+            series2.Name = "Total time";
+            series2.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(579, 289);
+            this.chart1.TabIndex = 38;
+            this.chart1.Text = "chart1";
             // 
             // button5
             // 
@@ -1220,43 +1253,13 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(93, 22);
             this.dateTimePicker1.TabIndex = 31;
             // 
-            // chart1
-            // 
-            this.chart1.BackColor = System.Drawing.Color.LightSlateGray;
-            this.chart1.BorderSkin.PageColor = System.Drawing.Color.LightSlateGray;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(216, 27);
-            this.chart1.Name = "chart1";
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Light;
-            series1.BorderWidth = 3;
-            series1.ChartArea = "ChartArea1";
-            series1.Color = System.Drawing.Color.Blue;
-            series1.Legend = "Legend1";
-            series1.Name = "Total Visitor";
-            series1.ShadowColor = System.Drawing.Color.Black;
-            series2.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            series2.BorderColor = System.Drawing.Color.Red;
-            series2.BorderWidth = 3;
-            series2.ChartArea = "ChartArea1";
-            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            series2.Legend = "Legend1";
-            series2.Name = "Total time";
-            series2.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(579, 289);
-            this.chart1.TabIndex = 38;
-            this.chart1.Text = "chart1";
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.ClientSize = new System.Drawing.Size(1036, 680);
+            this.Controls.Add(this.recordPanel);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.panel1);
@@ -1264,7 +1267,6 @@
             this.Controls.Add(this.dashboardPanel);
             this.Controls.Add(this.registerPanel);
             this.Controls.Add(this.chartPanel);
-            this.Controls.Add(this.recordPanel);
             this.DoubleBuffered = true;
             this.Name = "Dashboard";
             this.Text = "Dashboard";

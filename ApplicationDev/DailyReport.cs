@@ -31,6 +31,7 @@ namespace ApplicationDev
 
 
             List<string> cards = new List<string>();
+            List<CheckIn> singleUser = new List<CheckIn>();
             foreach (string s in visit)
             {
                 Console.WriteLine("Uniques: "+s);
@@ -38,6 +39,12 @@ namespace ApplicationDev
                 string vals = s.ToString();
                 string[] n = vals.Split(',');
                 this.dataGridViewAllVisitor.Rows.Add(n[0], n[1], n[2], DateTime.Parse(n[3]).ToShortDateString(), n[4], n[5], n[6]);
+
+                CheckIn newChk = new CheckIn();
+                newChk.card_number = n[0];
+                newChk.name = n[1];
+                newChk.total_time = n[6];
+                singleUser.Add(newChk);
 
                 cards.Add(n[0]);
             }
@@ -82,17 +89,28 @@ namespace ApplicationDev
 
                 }
                 
+            }
 
+            var groupedUser = from s in singleUser
+                              group s by s.card_number;
+            string card = "";
+            string name1 = "";
+            int totalM = 0;
+            foreach (var visitors in groupedUser)
+            {
+                card = visitors.Key.ToString();
+                Console.WriteLine("Single Visitor: " + visitors.Key);
+                foreach (var v in visitors)
+                {
+                    name1 = v.name;
+                    totalM = Convert.ToInt32(v.total_time) + totalM;
+                    Console.WriteLine(v.card_number + "  " + v.total_time);
+                }
 
-
-
-
-
-
-               
-
-
-
+                this.dataGridPerVisit.Rows.Add(card, name1, totalM.ToString());
+                totalM = 0;
+                card = "";
+                name1 = "";
 
             }
 
@@ -167,7 +185,17 @@ namespace ApplicationDev
             this.dataGridViewAllVisitor.Rows.Clear();
             this.dataGridViewAllVisitor.Refresh();
 
+            this.dataGridPerVisit.Rows.Clear();
+            this.dataGridPerVisit.Refresh();
+
+
             List<string> ls = checkin();
+            //---each person minutes
+
+            
+
+
+            
             int visitorsCount = 0;
             int totalMin = 0;
 
@@ -178,19 +206,37 @@ namespace ApplicationDev
 
 
             List<string> cards = new List<string>();
+            //List<string> singleUser = new List<string>();
+            List<CheckIn> singleUser = new List<CheckIn>();
+
             foreach (string s in visit)
             {
                 Console.WriteLine("Uniques: " + s);
 
                 string vals = s.ToString();
                 string[] n = vals.Split(',');
-                this.dataGridViewAllVisitor.Rows.Add(n[0],n[1], n[2], DateTime.Parse(n[3]).ToShortDateString(), n[4], n[5],n[6]);
+                this.dataGridViewAllVisitor.Rows.Add(n[0], n[1], n[2], DateTime.Parse(n[3]).ToShortDateString(), n[4], n[5], n[6]);
+
+                CheckIn newChk = new CheckIn();
+                newChk.card_number = n[0];
+                newChk.name = n[1];
+                newChk.total_time = n[6];
+                singleUser.Add(newChk);
+
+                
+                
+
+
                 cards.Add(n[0]);
+                
             }
+
+
 
             var uniq = cards.Distinct();
             foreach (var u in uniq)
             {
+                
                 visitorsCount = visitorsCount + 1;
 
             }
@@ -244,8 +290,30 @@ namespace ApplicationDev
 
             }
 
-            Console.WriteLine("Total Visitor: " + visitorsCount);
-            Console.WriteLine("Total Min: " + totalMin);
+            var groupedUser = from s in singleUser
+                                group s by s.card_number;
+            string card = "";
+            string name1 = "";
+            int totalM = 0;
+            foreach (var visitors in groupedUser) {
+                card = visitors.Key.ToString();
+                Console.WriteLine("Single Visitor: " + visitors.Key);
+                foreach (var v in visitors) {
+                    name1 = v.name;
+                    totalM = Convert.ToInt32(v.total_time)+totalM;
+                    Console.WriteLine(v.card_number+"  " +v.total_time);
+                }
+
+                this.dataGridPerVisit.Rows.Add(card, name1, totalM.ToString());
+                totalM = 0;
+                card = "";
+                name1 = "";
+
+            }
+
+            //Console.WriteLine("Total Visitor: " + visitorsCount);
+            //Console.WriteLine("Total Min: " + totalMin);
+            
             this.dataGridView1.Rows.Add(visitorsCount.ToString(), totalMin.ToString());
         }
 

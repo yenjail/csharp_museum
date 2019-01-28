@@ -798,15 +798,11 @@ namespace ApplicationDev
 
                             using (StreamWriter writer = new StreamWriter(path, append: false))
                             {
-
-
                                 foreach (CheckIn c in ch)
                                 {
                                     writer.WriteLine(c.card_number + "," + c.name + "," + c.day + "," + c.date + "," + c.checkIn_time + "," + c.checkOut_time + "," + c.total_time);
                                 }
-
-
-
+                 
                             }
                             //C
 
