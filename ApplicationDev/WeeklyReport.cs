@@ -16,31 +16,9 @@ namespace ApplicationDev
     {
 
       
-        static int WeeksInMonth(DateTime thisMonth)
-        {
-            int mondays = 0;
-            int month = thisMonth.Month;
-            int year = thisMonth.Year;
-            int daysThisMonth = DateTime.DaysInMonth(year, month);
-            DateTime beginingOfThisMonth = new DateTime(year, month, 1);
-            for (int i = 0; i < daysThisMonth; i++)
-                if (beginingOfThisMonth.AddDays(i).DayOfWeek == DayOfWeek.Monday)
-                    mondays++;
-            return mondays;
-        }
+      
 
-        static int GetWeekNumberOfMonth(DateTime date)
-        {
-            date = date.Date;
-            DateTime firstMonthDay = new DateTime(date.Year, date.Month, 1);
-            DateTime firstMonthMonday = firstMonthDay.AddDays((DayOfWeek.Monday + 7 - firstMonthDay.DayOfWeek) % 7);
-            if (firstMonthMonday > date)
-            {
-                firstMonthDay = firstMonthDay.AddMonths(-1);
-                firstMonthMonday = firstMonthDay.AddDays((DayOfWeek.Monday + 7 - firstMonthDay.DayOfWeek) % 7);
-            }
-            return (date - firstMonthMonday).Days / 7 + 1;
-        }
+        
 
        
 
@@ -71,10 +49,8 @@ namespace ApplicationDev
 
             //string week = String.Format("{1:00}", dateTimePicker1.Value, currentWeek);
 
-            int totalWeeks = GetWeekNumberOfMonth(dateTimePicker1.Value);
 
             //Console.WriteLine("Weeek: "+week);
-            Console.WriteLine("Total Weeks: "+  totalWeeks);
 
             weekCombo.Text = "Select Week";
            
@@ -322,14 +298,9 @@ namespace ApplicationDev
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            weekCombo.Items.Clear();
-            int totalWeeks = WeeksInMonth(dateTimePicker1.Value);
-            weekCombo.Text = "Select Week";
-            for (int i = 1; i <= totalWeeks; i++)
-            {
-                Console.WriteLine(i);
-                weekCombo.Items.Add(i);
-            }
+            //weekCombo.Items.Clear();
+           // weekCombo.Text = "Select Week";
+           
         }
 
         private void chkInBtn_Click(object sender, EventArgs e)

@@ -2,7 +2,6 @@ D:\c sharp workspace\ApplicationDev\ApplicationDev\bin\Debug\ApplicationDev.exe.
 D:\c sharp workspace\ApplicationDev\ApplicationDev\bin\Debug\ApplicationDev.exe
 D:\c sharp workspace\ApplicationDev\ApplicationDev\bin\Debug\ApplicationDev.pdb
 D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Debug\ApplicationDev.csprojAssemblyReference.cache
-D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Debug\ApplicationDev.Form1.resources
 D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Debug\ApplicationDev.Properties.Resources.resources
 D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Debug\ApplicationDev.csproj.GenerateResource.cache
 D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Debug\ApplicationDev.csproj.CoreCompileInputs.cache
@@ -10,7 +9,6 @@ D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Debug\ApplicationDev.exe
 D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Debug\ApplicationDev.pdb
 D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Debug\ApplicationDev.Dashboard.resources
 D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Debug\ApplicationDev.Register.resources
-D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Debug\ApplicationDev.LoginPanel.resources
 D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Debug\ApplicationDev.DailyReport.resources
 D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Debug\ApplicationDev.WeeklyReport.resources
 D:\c sharp workspace\ApplicationDev\ApplicationDev\obj\Debug\ApplicationDev.Search.resources

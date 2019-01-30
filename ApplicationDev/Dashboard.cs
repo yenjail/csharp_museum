@@ -14,13 +14,14 @@ namespace ApplicationDev
 {
     public partial class Dashboard : Form
     {
+
         List<string> vstrs;
 
-        List<Visitor> ls = new List<Visitor>();
+        List<Visitor> ls = new List<Visitor>(); //list to store Visitor objects
         Random rnd = new Random();
 
-        List<CheckIn> ch = new List<CheckIn>();
-       // List<Visitor> ls2 = new List<Visitor>();
+        List<CheckIn> ch = new List<CheckIn>(); //list to store CheckIN objects
+      
         List<string> chkData;
         DataTable dt = new DataTable();
         string[] lines;
@@ -28,11 +29,13 @@ namespace ApplicationDev
 
 
         
-
+        /*
+         * Method for reading vistor CSV file
+         * */
         public static List<string> readVisitors()
         {
             List<string> ls = new List<string>();
-            using (StreamReader sr = new StreamReader("../../../desm.csv"))
+            using (StreamReader sr = new StreamReader("../../../visitors.csv"))
             {
                 string line;
 
@@ -42,10 +45,8 @@ namespace ApplicationDev
 
                 while ((line = sr.ReadLine()) != null)
                 {
-                    //Console.WriteLine(line);
                     ls.Add(line);
 
-                    // Console.WriteLine(ls);
 
 
 
@@ -56,6 +57,10 @@ namespace ApplicationDev
 
         }
 
+
+        /*
+        * Method for reading checkin CSV file
+        * */
         public static List<string> readCheckIns()
         {
             List<string> ls = new List<string>();
@@ -69,11 +74,10 @@ namespace ApplicationDev
 
                 while ((line = sr.ReadLine()) != null)
                 {
-                    //Console.WriteLine(line);
+                   
                     ls.Add(line);
 
-                    // Console.WriteLine(ls);
-
+                   
 
 
                 }
@@ -84,7 +88,9 @@ namespace ApplicationDev
         }
 
 
-
+        /*
+        * Constructor class that initizalizes the components 
+        * */
         public Dashboard(List<string> visitors)
         {
             List<string> vstrs1 = readVisitors();
@@ -95,6 +101,7 @@ namespace ApplicationDev
 
 
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             barShow.Visible = false;
             weekCombo.Text = "Select Week.";
@@ -158,18 +165,14 @@ namespace ApplicationDev
                 foreach (string i in checkins1)
                 {
 
-                    //Console.WriteLine(i);
                     string[] values = i.Split(',');
 
 
-                    Console.WriteLine("Values COunt:  " + values.Count());
                     CheckIn checkIn = new CheckIn();
-                    //  writer.WriteLine(i.card_number+","+i.name+","+i.address+","+i.contact+","+i.gender);
 
                     if (values.Count() == 7)
                     {
                         checkIn.card_number = values[0];
-                        //Console.WriteLine(values[1]);
 
                         checkIn.name = values[1];
                         checkIn.day = values[2];
@@ -193,17 +196,12 @@ namespace ApplicationDev
 
 
 
-            Console.WriteLine("Constructor data:  ");
             foreach (string i in visitors)
             {
 
-                //Console.WriteLine(i);
                 var values = i.Split(',').ToList();
-                //Console.WriteLine(values.Count);
                 Visitor visitor = new Visitor();
-                //  writer.WriteLine(i.card_number+","+i.name+","+i.address+","+i.contact+","+i.gender);
                 visitor.card_number = values[0];
-                //Console.WriteLine(values[1]);
 
                 visitor.first_name = values[1];
                 visitor.last_name = values[2];
@@ -220,10 +218,13 @@ namespace ApplicationDev
         }
 
 
+        
+        /*
+         * Method that poplulates the datagridvie when the form loads.
+         **/
         private void BndDataCSV(string filePath)
         {
-            //   try
-            // {
+            
 
 
             lines = System.IO.File.ReadAllLines(filePath);
@@ -235,7 +236,7 @@ namespace ApplicationDev
                 string[] headerLabels = firstLine.Split(',');
             }
 
-            //pre load
+            
             List<string> ls = readCheckIns();
             
 
@@ -274,7 +275,9 @@ namespace ApplicationDev
 
 
 
-        
+        /*
+         * Enables register panel.
+         * */
         private void button1_Click(object sender, EventArgs e)
         {
             this.registerPanel.Visible = true;
@@ -287,12 +290,13 @@ namespace ApplicationDev
             this.barShow.Location = new System.Drawing.Point(519, 125);
             this.dashboardPanel.Visible = false;
             this.chartPanel.Visible = false;
-            //this.registerBar.Width = 119;
-         
-            //registerBar.Top = button1.Top;
-            //Register rs = new Register(vstrs);
-            //rs.Show();
+          
         }
+
+
+        /*
+         * Enables record panel.
+         * */
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -306,9 +310,7 @@ namespace ApplicationDev
             this.dashboardPanel.Visible = false;
             this.chartPanel.Visible = false;
 
-            //Form1 frm = new Form1();
-
-            //frm.Show();
+         
         }
 
 
@@ -317,14 +319,16 @@ namespace ApplicationDev
 
         }
 
+
+        /*
+         * Register new vistors.
+         * */
         private void button3_Click_1(object sender, EventArgs e)
         {
             try
             {
 
-                //String st = File.ReadAllText("C:\\Users\\anjil\\Desktop\\desm.csv");
-                //Console.WriteLine(st);
-
+            
                 Visitor existinVisitor = ls.Where(x => x.card_number == regCardNumber.Text).FirstOrDefault();
                 if (existinVisitor != null && existinVisitor.card_number == regCardNumber.Text)
                 {
@@ -349,7 +353,7 @@ namespace ApplicationDev
                     visitor.occupation = occupationTxt.Text.Trim();
 
                     ls.Add(visitor);
-                    string path = "../../../desm.csv";
+                    string path = "../../../visitors.csv";
 
                     if (!File.Exists(path))
                     {
@@ -376,64 +380,7 @@ namespace ApplicationDev
                 }
 
 
-                /** 
-                 using (StreamReader sr = new StreamReader("C:\\Users\\anjil\\Desktop\\desm.csv"))
-                 {
-                     string line;
-
-                   
-                     int i= 0;
-                     
-                     while ((line = sr.ReadLine()) != null)
-                     {
-                         //Console.WriteLine(line);
-                         ls.Add(line);
-
-                         //Console.WriteLine(ls);
-                         i = i + 1;
-
-            
-                     }
-                 }
-                 int y = 0;
-                 foreach (string i in ls)
-                 {
-                     y = y + 1;
-                     Console.WriteLine(i);
-                     Console.WriteLine(y);
-                 }
-
-
-
-                 if (regNameText.Text.ToString() != "" && addressText.Text.ToString() != "" && contactTxt.Text.ToString() != "")
-                 {
-                     
-                     StringBuilder csvcontent = new StringBuilder();
-                     //List<int> listA = new List<int>();
-                     int cardno=1000;
-                     //csvcontent.AppendLine("Name,CardNo,Address,Contact,Gender");
-                     string records = regNameText.Text.ToString()+","+cardno.ToString()+","+addressText.Text.ToString()+","+contactTxt.Text.ToString()+","+genderTxt.Text.ToString();
-                     csvcontent.AppendLine(records);
-                     string csvpath = "C:\\Users\\anjil\\Desktop\\desm.csv";
-                     File.AppendAllText(csvpath, csvcontent.ToString());
-                     cardno = cardno + 1;
-
-                     MessageBox.Show("Registered Successfully!!");
-
-                     regNameText.Text = "";
-                     addressText.Text = "";
-                     contactTxt.Text = "";
-
-                     
-
-
-                  
-
-                 }
-                 else {
-                     MessageBox.Show("Register again Properly!!");
-                 }
-     **/
+               
             }
             catch (Exception e1)
             {
@@ -443,7 +390,9 @@ namespace ApplicationDev
 
         
     }
-
+        /*
+         * Checks wether the card number belongs to visitor or not.
+         * */
         private void button4_Click(object sender, EventArgs e)
         {
 
@@ -495,7 +444,6 @@ namespace ApplicationDev
                 new DataColumn("In Time",typeof(string)),
                 new DataColumn("Out Time",typeof(string)),
                 new DataColumn("Total Duration(Min)",typeof(string)),
-                //new DataColumn("Check Out"),
 
 
 
@@ -503,6 +451,10 @@ namespace ApplicationDev
             BndDataCSV("../../../checkins.csv");
         }
 
+
+        /*
+         * This method records the check in time of visior.
+         * */
         private void chkInBtn_Click(object sender, EventArgs e)
         {
             List<string> forCounter = readCheckIns();
@@ -552,51 +504,9 @@ namespace ApplicationDev
                     chkData.Add("");
                     dt.Rows.Add(chkData[0], chkData[1], chkData[2], chkData[3], chkData[4], chkData[5], chkData[6]);
 
-                    /*foreach (string headerWord in columnNames)
-                    {
-                        //Console.WriteLine("Datas:  " + headerWord);
-                        dr[headerWord] = chkData[columnIndex++];
-
-
-
-                    }
-                    */
+                    
                     this.dataGridView1.DataSource = dt;
-                    /*
-                    for (int r = 1; r <= lines.Length - 1; r++)
-                    {
-
-                        //Console.WriteLine("Datawords length:  ");
-                        DataRow dr = dt.NewRow();
-                        int columnIndex = 0;
-                        day = DateTime.Now;
-                        string date = DateTime.Now.Date.ToString();
-                        //string[] chkData = { cardField.Text, nmField.Text, day.DayOfWeek.ToString(), day.Date.ToShortDateString(), day.ToLongTimeString(), "", "" };
-                        chkData.Add(cardField.Text);
-                        chkData.Add(nmField.Text);
-                        chkData.Add(day.DayOfWeek.ToString());
-                        chkData.Add(day.Date.ToShortDateString());
-                        chkData.Add(day.ToLongTimeString());
-                        chkData.Add("");
-                        chkData.Add("");
-
-
-
-                        /* foreach (string headerWord in columnNames)
-                         {
-                             //Console.WriteLine("Datas:  " + headerWord);
-                             dr[columnIndex++] = chkData[columnIndex++];
-
-
-                         }
-
-                        Console.WriteLine(chkData[1]);
-                        dt.Rows.Add(chkData[0], chkData[1], chkData[2], chkData[3], chkData[4], chkData[5],chkData[6]);
-                        this.dataGridView1.DataSource = dt;
-                        break;
-
-
-                    }*/
+                    
 
                     CheckIn checkin = new CheckIn();
                     checkin.card_number = chkData[0];
@@ -625,9 +535,7 @@ namespace ApplicationDev
                     using (StreamWriter writer = new StreamWriter(path, append: false))
                     {
 
-                        //  Console.WriteLine(i.card_number + i.first_name);
-
-                        //writer.WriteLine(cardField.Text + "," + nmField.Text + "," + day.DayOfWeek.ToString() + "," + day.Date.ToShortDateString() + "," + day.ToLongTimeString() + "," + "" + "," + "");
+                     
                         foreach (CheckIn c in ch)
                         {
                             writer.WriteLine(c.card_number + "," + c.name + "," + c.day + "," + c.date + "," + c.checkIn_time + "," + c.checkOut_time + "," + c.total_time);
@@ -646,28 +554,11 @@ namespace ApplicationDev
                     gnField.Text = "";
                     chkInBtn.Enabled = false;
 
-                    //Console.WriteLine("List size: " + ch.Count);
-
-
-                    /*
-                    DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
-                    row.Cells[0].Value = DateTime.Now.DayOfWeek;
-                    row.Cells[1].Value = cardField.Text;
-                    row.Cells[2].Value = nmField.Text;
-                    row.Cells[3].Value = DateTime.Now.Date;
-                    */
+                
 
 
 
-
-
-                    /*
-                      if (rowVal!=0 || rowVal!=null) {
-                          row.Cells[rowVal].Value = DateTime.Now.Date;
-                      }
-                      */
-
-                    //dataGridView1.Rows.Add(row);
+                    
                 }
                 else {
                     MessageBox.Show("Already checked in. Check out first!!");
@@ -680,11 +571,16 @@ namespace ApplicationDev
             }
         }
 
+
+
+           /*
+            * THis method performs the checout operation by checking the card number.
+            * */
         private void checkChkIn_Click(object sender, EventArgs e)
         {
 
             try
-            {
+            {	
                 string cn = checkCheckInTxt.Text;
 
 
@@ -694,9 +590,7 @@ namespace ApplicationDev
 
                     foreach (DataGridViewColumn col in dataGridView1.Columns)
                     {
-                        // if (dataGridView1.Rows[row.Index].Cells[col.Index].Value != null && dataGridView1.Rows[row.Index].Cells[col.Index].Value.ToString() != "")
-                        //{
-                        //Console.WriteLine("New: " + dataGridView1.Rows[row.Index].Cells[1].Value.ToString()+"   "+cn);
+                      
                         if (row != null && col != null)
                         {
                             if (dataGridView1.Rows[row.Index].Cells[1].Value.ToString() == cn && dataGridView1.Rows[row.Index].Cells[6].Value.ToString() == "" && dataGridView1.Rows[row.Index].Cells[col.Index].Value != null && dataGridView1.Rows[row.Index].Cells[col.Index].Value.ToString() != "")
@@ -706,12 +600,9 @@ namespace ApplicationDev
                                 cn = "";
                                 checkCheckInTxt.Text = "";
                                 chkData[5] = dataGridView1.Rows[row.Index].Cells[6].Value.ToString();
-                                //dataGridView1.Rows[row.Index].Cells[7].Value = DateTime.Parse(chkData[5]).Minute - DateTime.Parse(dataGridView1.Rows[row.Index].Cells[5].Value.ToString()).Minute;
                                 dataGridView1.Rows[row.Index].Cells[7].Value = Math.Round(DateTime.Parse(chkData[5]).Subtract(DateTime.Parse(dataGridView1.Rows[row.Index].Cells[5].Value.ToString())).TotalMinutes);
-                                //b.Subtract(a).TotalMinutes
                                 chkData[6] = dataGridView1.Rows[row.Index].Cells[7].Value.ToString();
 
-                                //write csv
                                 foreach (CheckIn c1 in ch)
                                 {
                                     if (c1.checkIn_time == dataGridView1.Rows[row.Index].Cells[5].Value.ToString() && c1.card_number == dataGridView1.Rows[row.Index].Cells[1].Value.ToString())
@@ -742,8 +633,9 @@ namespace ApplicationDev
                                 break;
 
                             }
+                            
 
-                            //}
+                            
 
                         }
 
@@ -763,19 +655,16 @@ namespace ApplicationDev
             try
             {
                 rowVal = e.RowIndex;
-                // DataGridViewRow row = dataGridView1.Rows[rowVal];
 
                 Console.WriteLine("Row value: " + rowVal);
 
-                //DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
-                //cardField.Text = row.ToString();
+
                 DataGridViewRow chkD = dataGridView1.Rows[rowVal];
 
                 if (chkD.Cells[6].Value.ToString() == "" && chkD.Cells[0].Value.ToString()!="") { 
                 chkD.Cells[6].Value = DateTime.Now.ToLongTimeString();
                 Console.WriteLine("Cel data: " + chkD.Cells[6].Value);
                 chkData[5] = chkD.Cells[6].Value.ToString();
-                //chkD.Cells[7].Value = DateTime.Parse(chkData[5]).Minute - DateTime.Parse(chkD.Cells[5].Value.ToString()).Minute;
                 chkD.Cells[7].Value = Math.Round(DateTime.Parse(chkData[5]).Subtract(DateTime.Parse(chkD.Cells[5].Value.ToString())).TotalMinutes);
 
                 chkData[6] = chkD.Cells[7].Value.ToString();
@@ -804,7 +693,7 @@ namespace ApplicationDev
                                 }
                  
                             }
-                            //C
+                            
 
                             break;
                         }
@@ -995,7 +884,7 @@ namespace ApplicationDev
                         visitor.email = n[6].ToString();
                         visitor.occupation = n[7].ToString();
                         ls.Add(visitor);
-                        string pathVisitor = "../../../desm.csv";
+                        string pathVisitor = "../../../visitors.csv";
                         if (!File.Exists(pathVisitor))
                         {
                             File.Create(pathVisitor);
@@ -1003,7 +892,6 @@ namespace ApplicationDev
                         using (StreamWriter writer = new StreamWriter(pathVisitor, append: true))
                         {
 
-                            //Console.WriteLine(i.card_number + i.first_name);
                             writer.WriteLine(n[0] + "," + n[1] + "," + n[2] + "," + n[3] + "," + n[4] + "," + n[5] + "," + n[6] + "," + n[7]);
                         }
 
@@ -1040,15 +928,12 @@ namespace ApplicationDev
                 List<string> cards = new List<string>();
                 foreach (string s in visit)
                 {
-                    //Console.WriteLine("Uniques: " + s);
 
                     string vals = s.ToString();
                     string[] n = vals.Split(',');
-                    //Console.WriteLine("Import dtas: "+ n[0], n[1], n[2],n[3], n[4], n[5], n[6]);
 
 
                     dt.Rows.Add(n[0], n[1] + " " + n[2], n[8], DateTime.Parse(n[9]).ToShortDateString(), n[10], n[11], n[12]);
-                    // n[0] + "," + n[1] + " " + n[2] + "," + n[8] + "," + n[9] + "," + n[10] + "," + n[11] + "," + n[12]
 
                 }
                 this.dataGridView1.DataSource = dt;
@@ -1092,7 +977,6 @@ namespace ApplicationDev
             // Gets the DTFI properties required by GetWeekOfYear.
             CalendarWeekRule myCWR = myCI.DateTimeFormat.CalendarWeekRule;
             DayOfWeek myFirstDOW = myCI.DateTimeFormat.FirstDayOfWeek;
-            // Console.WriteLine("Cuurent week: " + myCal.GetWeekOfYear(DateTime.Parse("1/1/2019"), myCWR, myFirstDOW));
 
             this.chart1.Series["Total Visitor"].Points.Clear();
             this.chart1.Series["Total time"].Points.Clear();
@@ -1140,10 +1024,8 @@ namespace ApplicationDev
                     foreach (string t in checkWeek)
                     {
 
-                        //Console.WriteLine(i);
                         var values = t.Split(',').ToList();
-                        // Console.WriteLine("Valuess  "+dateTimePicker1.Text);
-                        //myCal.GetWeekOfYear(DateTime.Parse("values[3]"), myCWR, myFirstDOW)
+                      
                         if (DateTime.Parse(values[3]).Month.ToString() == DateTime.Parse(dateTimePicker1.Value.ToString()).Month.ToString() && myCal.GetWeekOfYear(DateTime.Parse(values[3]), myCWR, myFirstDOW) == Convert.ToInt32(weekCombo.Text))
                         {
 
